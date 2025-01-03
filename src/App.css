@@ -1,32 +1,195 @@
+/* General styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif; /* A clean, professional font */
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background: linear-gradient(to bottom, #e6e6fa, #f8f8ff); /* Lavender tones */
+  color: #333;
+  min-height: 100vh;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Full-width Header styles */
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
-}
-
-nav ul {
-  list-style-type: none;
+  position: fixed;
+  top: 0;
+  left: 0; /* Ensure header is at the left edge */
+  width: 100%; /* Make header span the entire width of the viewport */
+   /* Full viewport height */
+  z-index: 1000;
+  background: linear-gradient(to right, #9c81d1, #7668d3); /* Elegant lavender gradient */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-nav li {
-  margin: 0 15px;
+header nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #fff;
+header nav ul li {
+  margin: 0 20px;
+}
+
+header nav ul li a {
   text-decoration: none;
-  font-size: 18px;
+  font-size: 1.2rem; /* Slightly larger font for better readability */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: color 0.3s ease, background 0.3s ease, text-shadow 0.3s ease;
 }
 
-a:hover {
-  text-decoration: underline;
+header nav ul li a:hover {
+  color: #f8f8ff;
+  background: rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 5px #fff;
+}
+
+header nav ul li a.active-link {
+  color: #f1f1f8;
+  text-shadow: 0 0 10px #d8bfd8, 0 0 15px #dda0dd;
+  font-weight: 600;
+}
+
+/* Section styles */
+.section {
+  padding: 120px 20px; /* Add some extra space to the section */
+  margin: 0 auto;
+  max-width: 1600px;
+  text-align: center;
+  background-color: rgba(245, 245, 255, 0.8); /* Subtle lavender background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.9s ease;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #c4b2e7; /* Softer lavender tone */
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.section-title.glow {
+  color: #c4b2e7;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.5); /* Subtle glow */
+}
+
+.active-section {
+  background-color: rgba(240, 240, 255, 0.9);
+  border-left: 5px solid #cbbbec;
+}
+
+.section p {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  font-size: 14px;
+  background: linear-gradient(to right, #9370db, #6a5acd);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Fullscreen section */
+.section-fullscreen {
+  height: 100vh; /* Full screen height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 12px 20px;
+  text-align: left;
+}
+
+th {
+  background-color: #9c81d1;
+  color: #fff;
+}
+
+td {
+  background-color: #f8f8ff;
+}
+
+tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+tr:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  header {
+    height: auto; /* Allow the header to adjust in height on smaller screens */
+    padding: 20px;
+  }
+
+  header nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  header nav ul li {
+    margin: 10px 0;
+  }
+
+  .section {
+    padding: 60px 15px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .back-to-top {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+
+  table th, table td {
+    padding: 10px 15px; /* Adjust table padding for smaller screens */
+  }
 }

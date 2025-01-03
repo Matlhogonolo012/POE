@@ -1,9 +1,9 @@
 import React from "react";
 
-const Section = ({ id, title, children }) => {
+const Section = ({ id, title, children, isActive }) => {
   return (
-    <section id={id} style={{ padding: "50px 0", margin: "20px 0", borderBottom: "1px solid #ddd" }}>
-      <h2>{title}</h2>
+    <section id={id} className={`section ${isActive ? "active-section" : ""}`}>
+      <h1 className={`section-title ${isActive ? "glow" : ""}`}>{title}</h1>
       {children}
     </section>
   );
