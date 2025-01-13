@@ -1,27 +1,25 @@
-/* General styles */
 body {
-  font-family: 'Poppins', sans-serif; /* A clean, professional font */
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #e6e6fa, #f8f8ff); /* Lavender tones */
+  background: linear-gradient(to bottom, #e6e6fa, #f8f8ff);
   color: #333;
   min-height: 100vh;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   overflow-x: hidden;
 }
 
-/* Full-width Header styles */
 header {
   position: fixed;
   top: 0;
-  left: 0; /* Ensure header is at the left edge */
-  width: 100%; /* Make header span the entire width of the viewport */
-   /* Full viewport height */
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  background: linear-gradient(to right, #9c81d1, #7668d3); /* Elegant lavender gradient */
+  background: linear-gradient(to right, #9c81d1, #7668d3);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px 0;
   display: flex;
@@ -44,7 +42,7 @@ header nav ul li {
 
 header nav ul li a {
   text-decoration: none;
-  font-size: 1.2rem; /* Slightly larger font for better readability */
+  font-size: 1.2rem;
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
@@ -63,13 +61,12 @@ header nav ul li a.active-link {
   font-weight: 600;
 }
 
-/* Section styles */
 .section {
-  padding: 120px 20px; /* Add some extra space to the section */
+  padding: 120px 20px;
   margin: 0 auto;
   max-width: 1600px;
   text-align: center;
-  background-color: rgba(245, 245, 255, 0.8); /* Subtle lavender background */
+  background-color: rgba(245, 245, 255, 0.8);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: background-color 0.9s ease;
 }
@@ -77,13 +74,13 @@ header nav ul li a.active-link {
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #c4b2e7; /* Softer lavender tone */
+  color: #c4b2e7;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .section-title.glow {
   color: #c4b2e7;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.5); /* Subtle glow */
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
 }
 
 .active-section {
@@ -97,7 +94,6 @@ header nav ul li a.active-link {
   line-height: 1.6;
 }
 
-/* Back to top button */
 .back-to-top {
   position: fixed;
   bottom: 20px;
@@ -119,26 +115,27 @@ header nav ul li a.active-link {
   transform: scale(1.1);
 }
 
-/* Fullscreen section */
 .section-fullscreen {
-  height: 100vh; /* Full screen height */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Table Styling */
 table {
   width: 100%;
   border-collapse: collapse;
   margin: 30px 0;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid #ddd;
 }
 
-th, td {
+th,
+td {
   padding: 12px 20px;
   text-align: left;
 }
@@ -160,10 +157,9 @@ tr:hover {
   background-color: #e0e0e0;
 }
 
-/* Responsive styles */
 @media screen and (max-width: 768px) {
   header {
-    height: auto; /* Allow the header to adjust in height on smaller screens */
+    height: auto;
     padding: 20px;
   }
 
@@ -189,7 +185,8 @@ tr:hover {
     font-size: 12px;
   }
 
-  table th, table td {
-    padding: 10px 15px; /* Adjust table padding for smaller screens */
+  table th,
+  table td {
+    padding: 10px 15px;
   }
 }
