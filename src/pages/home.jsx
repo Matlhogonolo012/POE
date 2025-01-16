@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import Section from "../components/section";
-import ProjectCard from "../components/ProjectCard";
 import Header from "../components/header";
 import { FaDownload, FaEnvelope, FaPhone, FaGithub, FaLinkedin, FaFilePdf } from 'react-icons/fa';
 import ProjectCarousel from "../components/projectCarousel";
