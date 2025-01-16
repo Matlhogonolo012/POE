@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
 
- background-size: cover;
+  background-size: cover;
 }
 
 header {
@@ -14,8 +14,8 @@ header {
   width: 100%;
   z-index: 1000;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
- background-color: #ffffff;
-  padding: 27px ;
+  background-color: #ffffff;
+  padding: 27px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -38,13 +38,6 @@ nav ul {
   padding: 0;
 }
 
-
-
-
-
-
-
-
 .hamburger {
   display: none;
   flex-direction: column;
@@ -60,21 +53,16 @@ nav ul {
   background: #fff;
 }
 
-
-.hero{
-
+.hero {
   display: flex;
   justify-content: space-evenly;
   justify-content: center;
   align-items: center;
-  
-  
 }
 
 .hero-content {
   max-width: 50%;
   text-align: left;
-
 }
 
 .hero-content h1 {
@@ -86,22 +74,19 @@ nav ul {
 .hero-content p {
   font-size: 18px;
   line-height: 1.6;
-
 }
 
 .hero-image img {
   width: 800px;
   height: 300pxauto;
- 
 }
 
-
 .btn-download {
-  background-color:  #6a5acd;;
+  background-color: #6a5acd;
   color: #fff;
   padding: 10px 20px;
   border: none;
-  border-radius: 25px;
+  border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s;
   font-size: 16px;
@@ -110,7 +95,6 @@ nav ul {
 .btn-download:hover {
   background-color: #454749;
 }
-
 
 .section {
   padding: 120px 20px;
@@ -123,19 +107,9 @@ nav ul {
 .section-title {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color:#6a5acd;;
+  color: #6a5acd;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
-/* .section-title.glow {
-  color: #c4b2e7;
-  text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
-} */
-
-/* .active-section {
-  background-color: rgba(240, 240, 255, 0.9);
-  border-left: 5px solid #cbbbec;
-} */
 
 .section p {
   margin-bottom: 30px;
@@ -163,7 +137,6 @@ nav ul {
   opacity: 1;
   transform: scale(1.1);
 }
-
 
 table {
   width: 100%;
@@ -200,17 +173,12 @@ tr:hover {
   background-color: #e0e0e0;
 }
 
-
-
-
 .nav {
   display: flex;
   align-items: center;
   position: relative;
-  
 }
-
-
+/* 
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -218,15 +186,16 @@ tr:hover {
   border: none;
   cursor: pointer;
   gap: 4px;
-}
+} */
 
 .hamburger span {
   width: 25px;
   height: 3px;
-  background:#454749;
+  background: #454749;
   border-radius: 3px;
   transition: all 0.3s ease;
-  margin-right: 30px 
+  margin-right: 30px;
+
 }
 
 .hamburger .close-icon {
@@ -244,13 +213,12 @@ tr:hover {
   right: 0;
   width: 200px;
   padding: 10px;
-  border-radius: 8px;
-
+  border-radius: 50px;
 }
-.points{
- list-style-type: none;
+.points {
+  list-style-type: none;
 }
-.link{
+.link {
   color: #ffffff;
   text-decoration: none;
 }
@@ -260,26 +228,23 @@ tr:hover {
 
 .menu li a {
   text-decoration: none;
-  color: #454749;
+  color: #000000;
   font-size: 1rem;
   font-weight: 400;
   transition: color 0.3s ease;
+  display: flex;justify-content: center;
+  text-align: left;
+ cursor: pointer;
 }
 
 .menu li a:hover {
-  color:   #6a5acd;
+  color: #383838;
 }
 
 .menu.show {
   display: flex;
 }
 
-
-
-
-
-
-/* Icon Styles */
 .icon {
   margin-right: 8px;
   vertical-align: middle;
@@ -301,7 +266,244 @@ tr:hover {
 }
 
 .social-links a:hover {
-  color: #6a5acd
+  color: #6a5acd;
+}
+
+.slick-slider {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slick-slide {
+  padding: 0 10px;
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 1;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #6a5acd;
+  font-size: 4rem;
+}
+
+.slick-dots {
+  bottom: -30px;
+}
+
+.slick-dots li button:before {
+  color: #6a5acd;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #6a5acd;
+}
+.github{
+  color: #333;
+  font-size: 31px;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+} .github:hover {
+  color: #2504ff;
+}
+/* Container for the cards */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px; /* Increased gap between cards */
+  justify-content: center;
+  padding: 20px; /* Added padding for smaller screens */
+}
+
+/* Card styling */
+.card {
+  width: 300px;
+  height: 400px;
+  perspective: 1000px; /* Adds 3D perspective */
+}
+
+/* Inner container for flipping animation */
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease; /* Slower and smoother transition */
+}
+
+/* Flip the card on hover */
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front and back of the card */
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden; /* Hide the back side of the card */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Front of the card */
+.card-front {
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* Back of the card */
+.card-back {
+  background-color: #6a5acd;
+  color: #fff;
+  transform: rotateY(180deg); /* Initially hidden */
+}
+
+/* GitHub link styling */
+.github {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+
+/* Goals Section Styling */
+.goals-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 15px;
+  animation: fadeInUp 1s ease-out; /* Fade-in animation */
+}
+
+.goals-content h3 {
+  color: #9370db;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.goals-content h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 50px;
+  height: 3px;
+  background:#9370db;
+  border-radius: 2px;
+}
+
+.points {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.points li {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(0, 123, 255, 0.05); /* Light blue background */
+  border-radius: 10px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.points li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.points li:hover::before {
+  left: 100%;
+}
+
+.points li:hover {
+  transform: translateY(-5px);
+  background:#f3f1f7; /* Slightly darker on hover */
+}
+
+.points li strong {
+  color: #9370db;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .goals-content {
+    padding: 15px;
+  }
+
+  .goals-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .points li {
+    padding: 10px;
+  }
+}
+/* Responsive Design for Smaller Phones */
+@media (max-width: 600px) {
+  .card-container {
+    gap: 20px; /* Smaller gap for smaller screens */
+  }
+
+  .card {
+    width: 100%; /* Full width on small screens */
+    height: auto; /* Auto height to fit content */
+    max-width: 300px; /* Limit maximum width */
+  }
+
+  .card-inner {
+    height: auto; /* Auto height to fit content */
+    min-height: 300px; /* Minimum height for consistency */
+  }
+
+  .card-front,
+  .card-back {
+    padding: 15px; /* Smaller padding for smaller screens */
+  }
+}
+@media (max-width: 768px) {
+  .slick-slide {
+    padding: 0 5px;
+  }
+
+  .slick-prev,
+  .slick-next {
+    display: none !important;
+  }
 }
 @media (min-width: 768px) {
   .hamburger {
@@ -344,8 +546,7 @@ tr:hover {
     right: 20px;
     background: linear-gradient(to right, #9c81d1, #7668d3);
     padding: 20px;
-    border-radius: 10px;
-
+    border-radius: 50px;
   }
 
   nav ul.open {

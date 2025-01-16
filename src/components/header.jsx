@@ -45,11 +45,11 @@ const Header = () => {
               Projects
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="feedback" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
               Feedback
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="goals" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
               Goals

@@ -33,73 +33,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <header>
-        <nav>
-          <ul>
-            <li>
-              <Link
-                to="intro"
-                smooth={true}
-                duration={500}
-                className={activeSection === "intro" ? "active-link" : ""}
-              >
-                Personal Introduction
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="resume"
-                smooth={true}
-                duration={500}
-                className={activeSection === "resume" ? "active-link" : ""}
-              >
-                Resume
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="skills"
-                smooth={true}
-                duration={500}
-                className={activeSection === "skills" ? "active-link" : ""}
-              >
-                Skills Matrix
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="projects"
-                smooth={true}
-                duration={500}
-                className={activeSection === "projects" ? "active-link" : ""}
-              >
-                Projects
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="feedback"
-                smooth={true}
-                duration={500}
-                className={activeSection === "feedback" ? "active-link" : ""}
-              >
-                Feedback & Reflections
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="goals"
-                smooth={true}
-                duration={500}
-                className={activeSection === "goals" ? "active-link" : ""}
-              >
-                Post-Program Goals
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </header> */}
-
+      
       <HomePage />
       <BackToTop />
     </div>

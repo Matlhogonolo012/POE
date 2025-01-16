@@ -3,7 +3,8 @@ import Section from "../components/section";
 import ProjectCard from "../components/ProjectCard";
 import Header from "../components/header";
 import { FaDownload, FaEnvelope, FaPhone, FaGithub, FaLinkedin, FaFilePdf } from 'react-icons/fa';
-
+import ProjectCarousel from "../components/projectCarousel";
+import projectsData from "../components/individualProjects";
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState("");
 
@@ -86,164 +87,180 @@ const HomePage = () => {
       
 
       <Section
-        id="skills"
-        title="Skills Matrix"
-        isActive={activeSection === "skills"}
-      >
-        <table>
-          <thead>
-            <tr>
-              <th>Skill</th>
-              <th>Proficiency Level</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>HTML</td>
-              <td>Intermediate</td>
-              <td>Used in multiple projects</td>
-            </tr>
-            <tr>
-              <td>CSS</td>
-              <td>Advanced</td>
-              <td>Styled responsive layouts</td>
-            </tr>
-            <tr>
-              <td>JavaScript</td>
-              <td>Intermediate</td>
-              <td>Developed dynamic web applications</td>
-            </tr>
-            <tr>
-              <td>React</td>
-              <td>Intermediate</td>
-              <td>Built interactive UIs</td>
-            </tr>
-            <tr>
-              <td>React</td>
-              <td>Intermediate</td>
-              <td>Built interactive UIs</td>
-            </tr>
-            <tr>
-              <td>React</td>
-              <td>Intermediate</td>
-              <td>Built interactive UIs</td>
-            </tr>
-            <tr>
-              <td>TypeScript</td>
-              <td>Beginner</td>
-              <td>Testing</td>
-            </tr>
-          </tbody>
-        </table>
-      </Section>
+  id="skills"
+  title="Skills Matrix"
+  isActive={activeSection === "skills"}
+>
+  <h3>Frontend Skills</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Skill</th>
+        <th>Proficiency Level</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>HTML</td>
+        <td>Intermediate</td>
+        <td>Used in multiple projects</td>
+      </tr>
+      <tr>
+        <td>CSS</td>
+        <td>Advanced</td>
+        <td>Styled responsive layouts</td>
+      </tr>
+      <tr>
+        <td>JavaScript</td>
+        <td>Intermediate</td>
+        <td>Developed dynamic web applications</td>
+      </tr>
+      <tr>
+        <td>React.js</td>
+        <td>Intermediate</td>
+        <td>Built interactive UIs</td>
+      </tr>
+      <tr>
+        <td>React Native</td>
+        <td>Intermediate</td>
+        <td>Built interactive mobile UIs</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Backend Skills</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Skill</th>
+        <th>Proficiency Level</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Node.js</td>
+        <td>Intermediate</td>
+        <td>Built server-side applications</td>
+      </tr>
+      <tr>
+        <td>Express.js</td>
+        <td>Intermediate</td>
+        <td>Developed RESTful APIs</td>
+      </tr>
+      <tr>
+        <td>MongoDB</td>
+        <td>Intermediate</td>
+        <td>Managed NoSQL databases</td>
+      </tr>
+      <tr>
+        <td>Firebase</td>
+        <td>Beginner</td>
+        <td>Used for real-time database and authentication</td>
+      </tr>
+    </tbody>
+  </table>
+</Section>
 
       <Section
         id="projects"
         title="Individual Projects"
         isActive={activeSection === "projects"}
       >
-        <ProjectCard
-          project={{
-            title: "Project 1",
-            description: "A dynamic to-do list app built with React.",
-            techStack: "React, Node.js, MongoDB",
-            keyFeatures: ["Add, Edit, Delete Tasks", "Filter tasks by status"],
-            challenges: "Handling asynchronous data updates using Redux.",
-            demoLink: "https://github.com/username/project1"
-          }}
-        />
-        <ProjectCard
-          project={{
-            title: "Project 2",
-            description: "A personal blog platform using Express.js and MongoDB.",
-            techStack: "Node.js, Express.js, MongoDB",
-            keyFeatures: ["Create, Edit, Delete Blog Posts", "Commenting System"],
-            challenges: "Handling user authentication and authorization with JWT.",
-            demoLink: "https://github.com/username/project2"
-          }}
-        />
+       
+        <div className="featured-projects">
+          
+          <ProjectCarousel projects={projectsData} />
+        </div>
+
+       
       </Section>
 
       <Section
-        id="group-projects"
-        title="Group Projects"
-        isActive={activeSection === "group-projects"}
-      >
-        <h3>Project Title: Restaurant Reservation App</h3>
-        <p><strong>Description:</strong> An app for managing restaurants and its reservations from users</p>
-        <p><strong>Team Members:</strong>Matlhogonolo Naoa and Tshepo Madira</p>
-        <p><strong>Tech Stack:</strong> React Native, MongoDB, NodeJs, EXPO</p>
-        <p><strong>Collaboration Experience:</strong> We used GitHub for version control and Trello for task management.</p>
-        <p><strong>Demo Link:</strong> [GitHub Repository](https://github.com/username/collaborative-task-manager)</p>
-      </Section>
+  id="group-projects"
+  title="Group Projects"
+  isActive={activeSection === "group-projects"}
+>
+  <div className="card-container">
+    {/* Card 1 */}
+    <div className="card">
+      <div className="card-inner">
+        <div className="card-front">
+          <h3>Restaurant Reservation App</h3>
+          <p><strong>Description:</strong> An app for managing restaurants and its reservations from users</p>
+        </div>
+        <div className="card-back">
+          <p><strong>Team Members:</strong> Matlhogonolo Naoa and Tshepo Madira</p>
+          <p><strong>Tech Stack:</strong> React Native, MongoDB, NodeJs, EXPO</p>
+          <p><strong>Collaboration Experience:</strong> We used GitHub for version control</p>
+          <p>
+            <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
+              <FaGithub />
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
 
-      {/* <Section
-        id="assessments"
-        title="Assessments"
-        isActive={activeSection === "assessments"}
-      >
-        <table>
-          <thead>
-            <tr>
-              <th>Assessment</th>
-              <th>Git Link</th>
-              <th>Date Completed</th>
-              <th>Grade/Score</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Image Gallery</td>
-              <td><a href="https://github.com/Matlhogonolo012/image-gallery.git"><FaGithub /> </a></td>
-              <td>December 2024</td>
-              <td>N/A</td>
-              <td>N/A</td>
-            </tr>
-            <tr>
-              <td>Employee Registration</td>
-              <td><a href="https://github.com/Matlhogonolo012/Employee-Registration-App.git"><FaGithub /> </a></td>
-              <td>.. 2024</td>
-              <td>N/A</td>
-              <td>N/A</td>
-            </tr>
-            <tr>
-              <td>React Native</td>
-              <td><a href="https://github.com/username/react-native-assessment"><FaGithub /></a></td>
-              <td>December 2024</td>
-              <td>N/A</td>
-              <td>N/A</td>
-            </tr>
-          </tbody>
-        </table>
-      </Section> */}
+    {/* Card 2 */}
+    <div className="card">
+      <div className="card-inner">
+        <div className="card-front">
+          <h3>Weather Based Travel Planner with API Integration</h3>
+          <p><strong>Description:</strong> An app for planning travel based on weather conditions</p>
+        </div>
+        <div className="card-back">
+          <p><strong>Team Members:</strong> Matlhogonolo Naoa and Tshepo Madira</p>
+          <p><strong>Tech Stack:</strong> React.js, MongoDB, NodeJs, Express.js</p>
+          <p><strong>Collaboration Experience:</strong> We used GitHub for version control and Trello for task management</p>
+          <p>
+            <a className="github" href="https://github.com/Matlhogonolo012/weather-app-frontend.git">
+              <FaGithub /> 
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>
 
-      {/* <Section
-        id="feedback"
-        title="Feedback & Reflections"
-        isActive={activeSection === "feedback"}
-      >
-        <p><strong>Facilitator Feedback:</strong> Excellent work on problem-solving and teamwork throughout the program!</p>
-        <p><strong>Self-Reflection:</strong> I've learned how to build full-stack applications using React, Node.js, and MongoDB. One of my key strengths is breaking down complex problems and finding simple solutions. I need to focus on improving my TypeScript skills.</p>
-      </Section> */}
+<Section
+  id="goals"
+  title="Post-Program Goals"
+  isActive={activeSection === "goals"}
+>
+  <div className="goals-content">
+    <h3>Short-Term Goals:</h3>
+    <ul className="points">
+      <li>
+        <strong>Secure a Role in Web Development:</strong> I aim to join a dynamic team where I can apply my skills in front-end and back-end development to create impactful digital solutions. I am particularly interested in roles that challenge me to grow and innovate.
+      </li>
+      <li>
+        <strong>Expand My Portfolio:</strong> Over the next 6-12 months, I plan to build 2-3 additional projects that showcase my ability to work with modern technologies like React, Node.js, and cloud platforms. These projects will focus on solving real-world problems and demonstrating my versatility as a developer.
+      </li>
+      <li>
+        <strong>Enhance My Skill Set:</strong> I intend to deepen my knowledge of advanced JavaScript concepts, explore frameworks like Next.js, and gain hands-on experience with DevOps tools such as Docker and Kubernetes.
+      </li>
+    </ul>
 
-      <Section
-        id="goals"
-        title="Post-Program Goals"
-        isActive={activeSection === "goals"}
-      >
-        <h3>Short-Term Goals:</h3>
-        <ul className="points">
-          <li>Secure a job in web development.</li>
-          <li>Build 2-3 more portfolio projects.</li>
-        </ul>
-        <h3>Long-Term Goals:</h3>
-        <ul className="points">
-          <li>Become a full-stack developer.</li>
-          <li>Contribute to open-source projects.</li>
-        </ul>
-      </Section>
+    <h3>Long-Term Goals:</h3>
+    <ul className="points">
+      <li>
+        <strong>Become a Full-Stack Developer:</strong> My long-term vision is to master both front-end and back-end development, enabling me to architect and deploy end-to-end solutions. I aspire to lead projects and mentor junior developers in the future.
+      </li>
+      <li>
+        <strong>Contribute to Open-Source Projects:</strong> I am passionate about giving back to the developer community. I plan to actively contribute to open-source projects, collaborate with global developers, and share my knowledge through blogs and tutorials.
+      </li>
+      <li>
+        <strong>Specialize in a Niche:</strong> Over time, I aim to specialize in a specific area of web development, such as performance optimization, accessibility, or cloud-native applications. This will allow me to become an expert in my field and deliver high-quality solutions.
+      </li>
+      <li>
+        <strong>Build a Personal Brand:</strong> I want to establish myself as a thought leader in the tech industry by sharing my journey, insights, and expertise through social media, speaking engagements, and technical writing.
+      </li>
+    </ul>
+  </div>
+</Section>
     </div>
   );
 };
