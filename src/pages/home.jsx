@@ -68,7 +68,7 @@ const HomePage = () => {
           </div>
         </div>
         <div className="hero-image">
-          <img src="../../src/assets/Untitled Project (1).jpg" alt="Matlhogonolo Naoa" />
+          <img src="../../src/assets/UntitledProject(1).jpg" alt="Matlhogonolo Naoa" />
         </div></div>
       </Section>
 
