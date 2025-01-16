@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="App">
-      <header>
+      {/* <header>
         <nav>
           <ul>
             <li>
@@ -98,7 +98,7 @@ function App() {
             </li>
           </ul>
         </nav>
-      </header>
+      </header> */}
 
       <HomePage />
       <BackToTop />
