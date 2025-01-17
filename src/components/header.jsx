@@ -1,66 +1,110 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { TbBlobFilled } from "react-icons/tb";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import "../styling/header.css";
+
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setExpanded(!expanded);
   };
 
+  const closeMenu = () => {
+    setExpanded(false);
+  };
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+    const observerOptions = {
+      root: null,
+      threshold: 0.5,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
   return (
-    <header className="header">
-      <div className="logo"> <TbBlobFilled /> MN</div>
-      <nav className={`nav ${isMenuOpen ? 'open' : ''}`}>
-        <button className="hamburger" onClick={toggleMenu}>
-          {isMenuOpen ? (
-            <span className="close-icon">✕</span>
-          ) : (
-            <>
-              <span></span>
-              <span></span>
-              <span></span>
-            </>
-          )}
-        </button>
-        <ul className={`menu ${isMenuOpen ? 'show' : ''}`}>
-          <li>
-            <Link to="cover-page" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
+    <Navbar bg="light" expand="lg" expanded={expanded} fixed="top">
+      <Container>
+        <Navbar.Brand href="#">
+          <TbBlobFilled /> MN
+        </Navbar.Brand>
+
+        <Navbar.Toggle aria-controls="navbar-nav" onClick={toggleMenu} />
+
+        <Navbar.Collapse id="navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link
+              as={Link}
+              to="cover-page"
+              smooth={true}
+              duration={500}
+              onClick={closeMenu}
+              className={activeSection === "cover-page" ? "active" : ""}
+            >
               Home
-            </Link>
-          </li>
-          <li>
-            <Link to="intro" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="intro"
+              smooth={true}
+              duration={500}
+              onClick={closeMenu}
+              className={activeSection === "intro" ? "active" : ""}
+            >
               Introduction
-            </Link>
-          </li>
-         
-          <li>
-            <Link to="skills" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="skills"
+              smooth={true}
+              duration={500}
+              onClick={closeMenu}
+              className={activeSection === "skills" ? "active" : ""}
+            >
               Skills
-            </Link>
-          </li>
-          <li>
-            <Link to="projects" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="projects"
+              smooth={true}
+              duration={500}
+              onClick={closeMenu}
+              className={activeSection === "projects" ? "active" : ""}
+            >
               Projects
-            </Link>
-          </li>
-          {/* <li>
-            <Link to="feedback" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
-              Feedback
-            </Link>
-          </li> */}
-          <li>
-            <Link to="goals" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="goals"
+              smooth={true}
+              duration={500}
+              onClick={closeMenu}
+              className={activeSection === "goals" ? "active" : ""}
+            >
               Goals
-            </Link>
-          </li>
-         
-        </ul>
-      
-   
-      </nav>
-    </header>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

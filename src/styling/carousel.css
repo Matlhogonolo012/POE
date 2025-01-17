@@ -1,0 +1,184 @@
+.custom-carousel {
+  padding: 20px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-carousel .carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.custom-carousel .carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex: 0 0 100%;
+  width: 100%;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  opacity: 0; /* Hidden by default */
+  visibility: hidden; /* Hidden by default */
+}
+
+.custom-carousel .carousel-item.active {
+  opacity: 1; /* Visible when active */
+  visibility: visible; /* Visible when active */
+}
+
+.custom-carousel .carousel-item .col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  flex: 0 0 auto;
+  width: calc(100% / var(--slides-to-show)); /* Dynamic width based on slides to show */
+}
+
+/* Project Card Styling */
+.custom-carousel .project-card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.custom-carousel .project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.custom-carousel .project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.custom-carousel .project-card .card-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.custom-carousel .project-card .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.custom-carousel .project-card .card-text {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Custom Indicators */
+.custom-carousel .carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+.custom-carousel .carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: none;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+.custom-carousel .carousel-indicators .active {
+  background-color: #007bff;
+}
+
+/* Custom Arrows */
+.custom-carousel .carousel-control-prev,
+.custom-carousel .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: background-color 0.3s ease;
+  z-index: 20; /* Ensure arrows are above other elements */
+}
+
+.custom-carousel .carousel-control-prev {
+  left: 10px;
+}
+
+.custom-carousel .carousel-control-next {
+  right: 10px;
+}
+
+.custom-carousel .carousel-control-prev:hover,
+.custom-carousel .carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.custom-carousel .carousel-control-prev-icon,
+.custom-carousel .carousel-control-next-icon {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(100%) saturate(2000%) hue-rotate(200deg);
+  width: 20px;
+  height: 20px;
+}
+
+/* Custom Arrows for Mobile */
+@media (max-width: 767.98px) {
+  .custom-carousel .carousel-control-prev,
+  .custom-carousel .carousel-control-next {
+    display: flex; /* Ensure arrows are visible */
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .custom-carousel .carousel-control-prev-icon,
+  .custom-carousel .carousel-control-next-icon {
+    width: 15px;
+    height: 15px;
+  }
+}
+.mobile-nav {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.mobile-nav button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.mobile-nav button:hover {
+  background-color: #0056b3;
+}

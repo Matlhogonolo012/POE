@@ -1,17 +1,27 @@
 import  { useState, useEffect } from "react";
 import Section from "../components/section";
 import Header from "../components/header";
-import { FaDownload, FaEnvelope, FaPhone, FaGithub, FaLinkedin, FaFilePdf } from 'react-icons/fa';
+import { FaDownload, FaEnvelope, FaPhone, FaGithub, FaLinkedin, } from 'react-icons/fa';
 import ProjectCarousel from "../components/projectCarousel";
 import projectsData from "../components/individualProjects";
+import { FaHtml5 } from "react-icons/fa";
+import { FaCss3Alt } from "react-icons/fa";
+import { TbBrandJavascript } from "react-icons/tb";
+import { FaReact } from "react-icons/fa";
+import { TbBrandReactNative } from "react-icons/tb";
+import { FaNodeJs } from "react-icons/fa";
+import { SiMongodb } from "react-icons/si";
+import { IoLogoFirebase } from "react-icons/io5";
+import { SlGlobe } from "react-icons/sl";
+
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     const observerOptions = {
-      root: null,
-      threshold: 0.5,
+      
+      
     };
 
     const observerCallback = (entries) => {
@@ -42,21 +52,27 @@ const HomePage = () => {
         <div className="hero">
         <div className="hero-content">
           <h1>Matlhogonolo Naoa</h1>
-          <p>
-            <strong>CodeTribe Location:</strong> CodeTribe Academy - Ga-Rankuwa
+          
+          <p >
+            <strong className="small-t">CodeTribe Location:</strong> CodeTribe Academy - Ga-Rankuwa
           </p>
           <p>
-            <strong>Program Enrolled:</strong> Full Stack Web Development
+            <strong className="small-t"> Program Enrolled:</strong> Full Stack Web Development
           </p>
           <p>
-            <strong>Contact Information:</strong>{" "}
-            <FaEnvelope /> Email: tlhoxi12@gmail.com | <FaPhone /> Phone: +27 81 368 4688
-          </p>
-          <p>
-            <strong>Date:</strong> Last Updated: 13 January 2025
+          <div className="contact-info">
+      <strong className="small-t">Contact Information:</strong>
+      <p>
+        <FaEnvelope className="icon" /> Email: tlhoxi12@gmail.com
+      </p>
+      <p>
+        <FaPhone className="icon" /> Phone: +27 81 368 4688
+      </p>
+    </div>
+            <strong className="small-t">Date:</strong> Last Updated: 13 January 2025
           </p>
           <button className="btn-download">
-            <FaDownload /> <a className="link" href="/src/assets/cv.pdf" download>Download CV</a>
+           <FaDownload />  <a className="link" href="/src/assets/cv.pdf" download>Download CV</a>
           </button>
           <div className="social-links">
             <a href="https://github.com/Matlhogonolo012" target="_blank" rel="noopener noreferrer">
@@ -67,9 +83,16 @@ const HomePage = () => {
             </a>
           </div>
         </div>
-        <div className="hero-image">
-          <img src="../../src/assets/UntitledProject(1).jpg" alt="Matlhogonolo Naoa" />
-        </div></div>
+        <div className="col-md-6">
+              <div className="hero-image">
+                <img
+                  src="../../src/assets/UntitledProject(1).jpg"
+                  alt="Matlhogonolo Naoa"
+                  className="img-fluid rounded"
+                />
+              </div>
+        </div>
+        </div>
       </Section>
 
       <Section
@@ -77,7 +100,7 @@ const HomePage = () => {
         title="Personal Introduction"
         isActive={activeSection === "intro"}
       >
-        <h2>Hello, I am Matlhogonolo Naoa</h2>
+        <h2 className="sub">Hello, I am Matlhogonolo Naoa</h2>
         <p>
           I am a dedicated and driven web developer with a passion for learning and mastering new technologies. My journey at CodeTribe Academy has equipped me with the skills and knowledge to build dynamic, user-centric web applications. I am deeply committed to advancing my expertise and aspire to become a full-stack developer, contributing meaningfully to open-source projects and the broader tech community. My goal is to continuously evolve as a developer, staying at the forefront of innovation and creating impactful solutions.
         </p>
@@ -101,34 +124,34 @@ const HomePage = () => {
     </thead>
     <tbody>
       <tr>
-        <td>HTML</td>
+        <td>HTML <FaHtml5 /></td>
         <td>Intermediate</td>
         <td>Used in multiple projects</td>
       </tr>
       <tr>
-        <td>CSS</td>
+        <td>CSS <FaCss3Alt /></td>
         <td>Advanced</td>
         <td>Styled responsive layouts</td>
       </tr>
       <tr>
-        <td>JavaScript</td>
+        <td>JavaScript <TbBrandJavascript /></td>
         <td>Intermediate</td>
         <td>Developed dynamic web applications</td>
       </tr>
       <tr>
-        <td>React.js</td>
+        <td>React.js <FaReact /></td>
         <td>Intermediate</td>
         <td>Built interactive UIs</td>
       </tr>
       <tr>
-        <td>React Native</td>
+        <td>React Native <TbBrandReactNative /></td>
         <td>Intermediate</td>
         <td>Built interactive mobile UIs</td>
       </tr>
     </tbody>
   </table>
 
-  <h3>Backend Skills</h3>
+  <h3 className="sub">Backend Skills</h3>
   <table>
     <thead>
       <tr>
@@ -139,7 +162,7 @@ const HomePage = () => {
     </thead>
     <tbody>
       <tr>
-        <td>Node.js</td>
+        <td>Node.js <FaNodeJs /></td>
         <td>Intermediate</td>
         <td>Built server-side applications</td>
       </tr>
@@ -149,12 +172,12 @@ const HomePage = () => {
         <td>Developed RESTful APIs</td>
       </tr>
       <tr>
-        <td>MongoDB</td>
+        <td>MongoDB <SiMongodb /></td>
         <td>Intermediate</td>
         <td>Managed NoSQL databases</td>
       </tr>
       <tr>
-        <td>Firebase</td>
+        <td>Firebase <IoLogoFirebase /></td>
         <td>Beginner</td>
         <td>Used for real-time database and authentication</td>
       </tr>
@@ -185,38 +208,48 @@ const HomePage = () => {
     {/* Card 1 */}
     <div className="card">
       <div className="card-inner">
-        <div className="card-front">
-          <h3>Restaurant Reservation App</h3>
+        <div className="goals-content">
+          <h3 className="goals-content">Restaurant Reservation App</h3>
           <p><strong>Description:</strong> An app for managing restaurants and its reservations from users</p>
-        </div>
-        <div className="card-back">
+      
           <p><strong>Team Members:</strong> Matlhogonolo Naoa and Tshepo Madira</p>
-          <p><strong>Tech Stack:</strong> React Native, MongoDB, NodeJs, EXPO</p>
+          <p><strong>Tech Stack:</strong> Expo, <TbBrandReactNative />  <SiMongodb /> <FaNodeJs /> </p>
           <p><strong>Collaboration Experience:</strong> We used GitHub for version control</p>
           <p>
-            <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
+            <div className="div">
+              <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
               <FaGithub />
             </a>
+            <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
+            <SlGlobe />
+            </a> 
+            </div>
+           
           </p>
         </div>
       </div>
     </div>
 
-    {/* Card 2 */}
+
     <div className="card">
       <div className="card-inner">
-        <div className="card-front">
-          <h3>Weather Based Travel Planner with API Integration</h3>
+        <div className="goals-content">
+          <h3 className="goals-content">Weather Based Travel Planner with API Integration</h3>
           <p><strong>Description:</strong> An app for planning travel based on weather conditions</p>
-        </div>
-        <div className="card-back">
+      
           <p><strong>Team Members:</strong> Matlhogonolo Naoa and Tshepo Madira</p>
-          <p><strong>Tech Stack:</strong> React.js, MongoDB, NodeJs, Express.js</p>
+          <p><strong>Tech Stack:</strong>  Express.js, <FaReact />,  <SiMongodb /> , <FaNodeJs /></p>
           <p><strong>Collaboration Experience:</strong> We used GitHub for version control and Trello for task management</p>
           <p>
-            <a className="github" href="https://github.com/Matlhogonolo012/weather-app-frontend.git">
-              <FaGithub /> 
+           
+            <div className="div">
+              <a className="github" href="https://github.com/Matlhogonolo012/weather-app-frontend.git">
+              <FaGithub />
             </a>
+            <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
+            <SlGlobe />
+            </a> 
+            </div>
           </p>
         </div>
       </div>

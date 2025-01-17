@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { HiDocumentArrowUp } from "react-icons/hi2";
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -29,7 +29,7 @@ const BackToTop = () => {
   return (
     isVisible && (
       <button onClick={scrollToTop} className="back-to-top">
-        ↑ Top
+        <HiDocumentArrowUp /> Top
       </button>
     )
   );
