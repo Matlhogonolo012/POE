@@ -89,6 +89,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  table-layout: fixed;
 }
 
 table th,
@@ -96,10 +97,12 @@ table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+  
 }
 
 table th {
-  background-color: #6a5acd;
+  background: linear-gradient(to right, #9370db, #6a5acd);
+
   color: #fff;
 }
 
@@ -109,6 +112,7 @@ table tr:nth-child(even) {
 
 table tr:hover {
   background-color: #f1f1f1;
+  transition: background-color 0.9s ease-in-out;
 }
 
 .section {
@@ -143,7 +147,8 @@ table tr:hover {
 }
 
 .btn-download {
-  background-color: #6a5acd;
+  background: linear-gradient(to right, #9370db, #6a5acd);
+  
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -157,6 +162,8 @@ table tr:hover {
 
 .btn-download:hover {
   background-color: #454749;
+  transition: background-color 0.9s ease-in-out;
+
 }
 
 .btn-download a {
@@ -221,21 +228,24 @@ table tr:hover {
 }
 .back-to-top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 12px 18px;
-  font-size: 14px;
+  bottom: 30px;
+  right: 24px;
+  padding: 20px 18px;
+  font-size: 17px;
   background: linear-gradient(to right, #9370db, #6a5acd);
-  color: white;
+  color: rgb(255, 255, 255);
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  opacity: 0.8;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+ 
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.back-to-top:hover{
+ transform: scale(1.1); 
 
+}
 
 
 
@@ -268,6 +278,7 @@ table tr:hover {
 }
 .points {
   list-style-type: none;
+  font-size: 17px;
 }
 .link {
   color: #ffffff;
@@ -288,9 +299,7 @@ table tr:hover {
  cursor: pointer;
 }
 
-.menu li a:hover {
-  color: #383838;
-}
+
 
 .menu.show {
   display: flex;
@@ -299,6 +308,7 @@ table tr:hover {
 .icon {
   margin-right: 8px;
   vertical-align: middle;
+  color: #9370db ;
 }
 
 .btn-download .icon {
@@ -318,6 +328,8 @@ table tr:hover {
 
 .social-links a:hover {
   color: #6a5acd;
+  transition: color 0.9s ease;
+ 
 }
 
 .slick-slider {
@@ -358,7 +370,8 @@ table tr:hover {
   transition: color 0.3s ease;
 } 
 .github:hover {
-  color: #2504ff;
+  color: #6a5acd;
+  transition: color 0.9s ease;
 }
 /* Container for the cards */
 .card-container {
@@ -402,11 +415,9 @@ table tr:hover {
 }
 .sub{
   color:  #6a5acd;
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  position: relative;
-  display: inline-block;
-   content: '';
+  font-size: 1.7rem;
+  margin: 20px;
+
 }
 
 
@@ -417,11 +428,12 @@ table tr:hover {
   align-items: center;
   margin: 5px 0;
   margin-bottom: 20px;
+
 }
 
 
 .small-t{
-   color: #6a5acd;
+   color: #000000;
 }
 .goals-content h3 {
   color:  #6a5acd;
@@ -438,23 +450,25 @@ table tr:hover {
   bottom: -5px;
   width: 50px;
   height: 3px;
-  background:#9370db;
+  background:#6a5acd;
   border-radius: 2px;
 }
 
 .points {
   list-style-type: none;
   padding-left: 0;
+
 }
 
 .points li {
   margin: 20px 0;
-  padding: 15px;
-  background: rgba(0, 123, 255, 0.05); /* Light blue background */
+  padding: 25px;
+  background:#695acd04; /* Light blue background */
   border-radius: 10px;
   transition: transform 0.3s ease, background 0.3s ease;
   position: relative;
   overflow: hidden;
+
 }
 
 .points li::before {
@@ -469,16 +483,19 @@ table tr:hover {
 }
 
 .points li:hover::before {
+
   left: 100%;
+  
 }
 
 .points li:hover {
   transform: translateY(-5px);
-  background:#f3f1f7; /* Slightly darker on hover */
+  background-color:#f6f1f7; /* Slightly darker on hover */
+  transition: background-color 0.9s ease;
 }
 
 .points li strong {
-  color: #9370db;
+  color: #6a5acd;
 }
 
 /* Fade-in Animation */

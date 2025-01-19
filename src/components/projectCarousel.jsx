@@ -29,10 +29,10 @@ const ProjectCarousel = ({ projects }) => {
         setSlidesToShow(1); // Small devices: 1 card per slide
       } else if (window.innerWidth < 992) {
         setSlidesToShow(2); // Medium devices: 2 cards per slide
-      } else if (window.innerWidth < 1200) {
+      } else if (window.innerWidth < 1500) {
         setSlidesToShow(3); // Large devices: 3 cards per slide
       } else {
-        setSlidesToShow(4); // Extra large devices: 4 cards per slide
+        setSlidesToShow(3); // Extra large devices: 4 cards per slide
       }
     };
 

@@ -2,8 +2,8 @@ import  { useState, useEffect } from "react";
 import Section from "../components/section";
 import Header from "../components/header";
 import { FaDownload, FaEnvelope, FaPhone, FaGithub, FaLinkedin, } from 'react-icons/fa';
-import ProjectCarousel from "../components/projectCarousel";
-import projectsData from "../components/individualProjects";
+
+import FeaturedProjects from "../components/featuredProjects";
 import { FaHtml5 } from "react-icons/fa";
 import { FaCss3Alt } from "react-icons/fa";
 import { TbBrandJavascript } from "react-icons/tb";
@@ -12,7 +12,7 @@ import { TbBrandReactNative } from "react-icons/tb";
 import { FaNodeJs } from "react-icons/fa";
 import { SiMongodb } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
-import { SlGlobe } from "react-icons/sl";
+import { FaLink } from "react-icons/fa6";
 
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState("");
@@ -113,7 +113,7 @@ const HomePage = () => {
   title="Skills Matrix"
   isActive={activeSection === "skills"}
 >
-  <h3>Frontend Skills</h3>
+  <h3 className="sub">Frontend Skills</h3>
   <table>
     <thead>
       <tr>
@@ -193,7 +193,7 @@ const HomePage = () => {
        
         <div className="featured-projects">
           
-          <ProjectCarousel projects={projectsData} />
+        <FeaturedProjects />
         </div>
 
        
@@ -201,7 +201,7 @@ const HomePage = () => {
 
       <Section
   id="group-projects"
-  title="Group Projects"
+  title="Team Projects"
   isActive={activeSection === "group-projects"}
 >
   <div className="card-container">
@@ -214,14 +214,14 @@ const HomePage = () => {
       
           <p><strong>Team Members:</strong> Matlhogonolo Naoa and Tshepo Madira</p>
           <p><strong>Tech Stack:</strong> Expo, <TbBrandReactNative />  <SiMongodb /> <FaNodeJs /> </p>
-          <p><strong>Collaboration Experience:</strong> We used GitHub for version control</p>
+          <p><strong> Experience:</strong> We used GitHub for version control</p>
           <p>
             <div className="div">
               <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
               <FaGithub />
             </a>
             <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
-            <SlGlobe />
+            <FaLink />
             </a> 
             </div>
            
@@ -247,7 +247,7 @@ const HomePage = () => {
               <FaGithub />
             </a>
             <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
-            <SlGlobe />
+            <FaLink />
             </a> 
             </div>
           </p>

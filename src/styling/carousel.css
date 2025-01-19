@@ -1,15 +1,20 @@
+/* Carousel Container */
 .custom-carousel {
-  padding: 20px 0;
+  padding: 30px 0;
   position: relative;
   overflow: hidden;
+  max-width: 1500px; /* Maximum width for larger screens */
+  margin: 0 auto; /* Center the carousel */
 }
 
+/* Carousel Inner */
 .custom-carousel .carousel-inner {
   display: flex;
   transition: transform 0.5s ease-in-out;
   width: 100%;
 }
 
+/* Carousel Item */
 .custom-carousel .carousel-item {
   display: flex;
   justify-content: center;
@@ -27,6 +32,7 @@
   visibility: visible; /* Visible when active */
 }
 
+/* Carousel Columns */
 .custom-carousel .carousel-item .col {
   display: flex;
   justify-content: center;
@@ -38,19 +44,13 @@
 
 /* Project Card Styling */
 .custom-carousel .project-card {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   overflow: hidden;
-  width: 100%;
   max-width: 300px;
-  margin: 0 auto;
-}
-
-.custom-carousel .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  margin: 0 auto; /* Center the card */
 }
 
 .custom-carousel .project-card img {
@@ -60,25 +60,110 @@
 }
 
 .custom-carousel .project-card .card-body {
-  padding: 20px;
-  text-align: center;
+  padding: 16px;
 }
 
 .custom-carousel .project-card .card-title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin: 0 0 8px 0;
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflow */
 }
 
 .custom-carousel .project-card .card-text {
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 1rem;
+  color: #555;
+  margin: 0 0 16px 0;
+  overflow: hidden; /* Hide overflow */
+  display: -webkit-box;
+ 
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; /* Add ellipsis for overflow */
+}
+
+.custom-carousel .project-card .project-details {
+  margin: 16px 0;
+}
+
+.custom-carousel .project-card .project-details p {
+  margin: 8px 0;
+ 
+  
+}
+
+.custom-carousel .project-card .project-details strong {
+  color: #333;
+  font-size: 16px;
+}
+
+.custom-carousel .project-card .language-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.custom-carousel .project-card .language-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+
+}
+
+.custom-carousel .project-card .project-links {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.custom-carousel .project-card .project-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: #333;
+  font-size: 25px;
+}
+
+.custom-carousel .project-card .project-link:hover {
+  text-decoration: underline;
+  color:   #6a5acd;
+  transition: color 0.9s ease;
+}
+
+.custom-carousel .project-card .card-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 16px;
+  background: #f8f9fa;
+  border-top: 1px solid #ddd;
+}
+
+.custom-carousel .project-card .card-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color:   #6a5acd;
+
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-carousel .project-card .card-button:hover {
+  color: #9370db;
+  transition: color 0.9s ease-in-out;
 }
 
 /* Custom Indicators */
 .custom-carousel .carousel-indicators {
   position: absolute;
-  bottom: 10px;
+  bottom: 10px; /* Adjust this value to position indicators properly */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -99,7 +184,7 @@
 }
 
 .custom-carousel .carousel-indicators .active {
-  background-color: #007bff;
+  background-color:#9370db;
 }
 
 /* Custom Arrows */
@@ -110,7 +195,7 @@
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -118,10 +203,12 @@
   opacity: 1;
   transition: background-color 0.3s ease;
   z-index: 20; /* Ensure arrows are above other elements */
+  color: #9370db;
 }
 
 .custom-carousel .carousel-control-prev {
   left: 10px;
+  
 }
 
 .custom-carousel .carousel-control-next {
@@ -130,7 +217,8 @@
 
 .custom-carousel .carousel-control-prev:hover,
 .custom-carousel .carousel-control-next:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(61, 56, 61, 0.247);
+  transition: background-color 0.9s ease-in-out;
 }
 
 .custom-carousel .carousel-control-prev-icon,
@@ -140,14 +228,67 @@
   height: 20px;
 }
 
-/* Custom Arrows for Mobile */
+/* Responsive Adjustments */
+
+/* Large Desktops (1200px and above) */
+@media (min-width: 1200px) {
+  .custom-carousel .carousel-control-prev,
+  .custom-carousel .carousel-control-next {
+    width: 45px;
+    height: 45px;
+  }
+
+  .custom-carousel .carousel-control-prev-icon,
+  .custom-carousel .carousel-control-next-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Desktops (1024px - 1199px) */
+@media (max-width: 1199.98px) {
+  .custom-carousel .carousel-control-prev,
+  .custom-carousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .custom-carousel .carousel-control-prev-icon,
+  .custom-carousel .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Tablets (768px - 1023px) */
+@media (max-width: 1023.98px) {
+  .custom-carousel .carousel-control-prev,
+  .custom-carousel .carousel-control-next {
+    width: 35px;
+    height: 35px;
+  }
+
+  .custom-carousel .carousel-control-prev-icon,
+  .custom-carousel .carousel-control-next-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .custom-carousel .carousel-control-prev {
+    left: 5px;
+  }
+
+  .custom-carousel .carousel-control-next {
+    right: 5px;
+  }
+}
+
+/* Small Tablets (600px - 767px) */
 @media (max-width: 767.98px) {
   .custom-carousel .carousel-control-prev,
   .custom-carousel .carousel-control-next {
-    display: flex; /* Ensure arrows are visible */
     width: 30px;
     height: 30px;
-    background-color: rgba(0, 0, 0, 0.2);
   }
 
   .custom-carousel .carousel-control-prev-icon,
@@ -155,30 +296,62 @@
     width: 15px;
     height: 15px;
   }
-}
-.mobile-nav {
-  position: fixed;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
-  z-index: 100;
+
+  .custom-carousel .carousel-control-prev {
+    left: 2px;
+  }
+
+  .custom-carousel .carousel-control-next {
+    right: 2px;
+  }
 }
 
-.mobile-nav button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 14px;
-  cursor: pointer;
+/* Mobile Devices (480px - 599px) */
+@media (max-width: 599.98px) {
+  .custom-carousel .carousel-control-prev,
+  .custom-carousel .carousel-control-next {
+    width: 25px;
+    height: 25px;
+  }
+
+  .custom-carousel .carousel-control-prev-icon,
+  .custom-carousel .carousel-control-next-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .custom-carousel .carousel-control-prev {
+    left: 1px;
+  }
+
+  .custom-carousel .carousel-control-next {
+    right: 1px;
+  }
+
+  .custom-carousel .project-card {
+    max-width: 100%; /* Allow cards to take full width on mobile */
+  }
 }
 
-.mobile-nav button:hover {
-  background-color: #0056b3;
+/* Very Small Mobile Devices (below 480px) */
+@media (max-width: 479.98px) {
+  .custom-carousel .carousel-control-prev,
+  .custom-carousel .carousel-control-next {
+    width: 20px;
+    height: 20px;
+  }
+
+  .custom-carousel .carousel-control-prev-icon,
+  .custom-carousel .carousel-control-next-icon {
+    width: 10px;
+    height: 10px;
+  }
+
+  .custom-carousel .carousel-control-prev {
+    left: 0;
+  }
+
+  .custom-carousel .carousel-control-next {
+    right: 0;
+  }
 }
