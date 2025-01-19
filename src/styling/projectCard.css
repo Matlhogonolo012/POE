@@ -28,7 +28,7 @@
 
 .card-text {
   font-size: 1rem;
-  color: #555;
+
   margin: 0 0 16px 0;
 }
 
@@ -39,12 +39,10 @@
 .project-details p {
   margin: 8px 0;
   font-size: 0.9rem;
-  color: #333;
+ 
 }
 
-.project-details strong {
-  color: #333;
-}
+
 
 .language-list {
   display: flex;
@@ -99,7 +97,7 @@
   align-items: center;
   justify-content: center;
   background-color: #f0f0f0;
-  height: 200px; /* Adjust as needed */
-  color: #666;
+  
+  
   font-size: 1.2em;
 }
