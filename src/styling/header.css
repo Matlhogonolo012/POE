@@ -1,10 +1,11 @@
 .navbar-brand {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     color: #6a5acd !important;
     display: flex;
     align-items: center;
-    gap: 4px;
+    
+    margin-top: 10px;
   }
   
 /* Add this to your header.css file */
@@ -13,7 +14,8 @@
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    color: #333
+    color: #000000;
+   
   }
   
   .nav-link.active::after {
@@ -53,8 +55,3 @@
     box-shadow: none;
   }
 
-  .nav-link.active::after {
-    background: linear-gradient(to right, #9370db, #6a5acd);
-   height: 3px; /* Thicker underline */
-    bottom: -5px; /* Move the underline further down */
-  }

@@ -41,7 +41,7 @@ const Header = () => {
   }, []);
 
   return (
-    <Navbar bg="light" expand="lg" expanded={expanded} fixed="top">
+    <Navbar bg="white" expand="lg" expanded={expanded} fixed="top">
       <Container>
         <Navbar.Brand href="#">
           <TbBlobFilled /> MN
