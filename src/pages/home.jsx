@@ -13,6 +13,7 @@ import { FaNodeJs } from "react-icons/fa";
 import { SiMongodb } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { FaLink } from "react-icons/fa6";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState("");
@@ -47,7 +48,7 @@ const HomePage = () => {
       <Section
         id="cover-page"
         isActive={activeSection === "cover-page"}
-        className="hero-section"
+        
       >
         <div className="hero">
         <div className="hero-content">
@@ -97,7 +98,7 @@ const HomePage = () => {
         isActive={activeSection === "intro"}
       >
         <h2 className="sub">Hello, I am Matlhogonolo Naoa</h2>
-        <p>
+        <p className="about">
           I am a dedicated and driven web developer with a passion for learning and mastering new technologies. My journey at CodeTribe Academy has equipped me with the skills and knowledge to build dynamic, user-centric web applications. I am deeply committed to advancing my expertise and aspire to become a full-stack developer, contributing meaningfully to open-source projects and the broader tech community. My goal is to continuously evolve as a developer, staying at the forefront of innovation and creating impactful solutions.
         </p>
       </Section>

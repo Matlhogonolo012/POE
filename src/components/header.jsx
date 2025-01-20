@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { TbBlobFilled } from "react-icons/tb";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import "../styling/header.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false);

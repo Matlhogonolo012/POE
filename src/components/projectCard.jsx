@@ -15,6 +15,7 @@ import {
 } from "react-icons/fa";
 import { FaLink } from "react-icons/fa6";
 import "../styling/projectCard.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const ProjectCard = ({ project }) => {
   const [languages, setLanguages] = useState([]);

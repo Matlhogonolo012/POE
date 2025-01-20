@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Carousel, Row, Col } from "react-bootstrap";
 import ProjectCard from "../../src/components/projectCard";
 import "../styling/carousel.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const ProjectCarousel = ({ projects }) => {
   const [slidesToShow, setSlidesToShow] = useState(3); // Default number of cards per slide

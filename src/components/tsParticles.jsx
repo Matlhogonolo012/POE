@@ -1,12 +1,3 @@
-
-import HomePage from "../src/pages/home";
-import BackToTop from "../src/components/backToTheTop";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Header from "./components/header";
-
-
-
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim"; // Using the slim package for smaller bundle size
@@ -99,10 +90,10 @@ const TsParticles = () => {
                     enable: true,
                     area: 800, // Density of particles
                   },
-                  value: 25,
+                  value: 80, // Number of particles
                 },
                 opacity: {
-                  value: 0.5
+                  value: 0.5, // Opacity of particles
                 },
                 shape: {
                   type: "circle", // Shape of particles
@@ -121,17 +112,13 @@ const TsParticles = () => {
       <div
         style={{
           position: "relative", // Ensure content is above the particles
-          zIndex: 10, // Higher z-index than particles
+          zIndex: 1, // Higher z-index than particles
           padding: "20px",
           color: "#000", // Text color for visibility
         }}
       >
      
       </div>
-
-      <HomePage />
-      <BackToTop />
-
     </div>
   );
 };

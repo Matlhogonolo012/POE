@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spectral+SC:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
-body {
+{
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
@@ -37,7 +37,9 @@ nav ul {
   margin: 0;
   padding: 0;
 }
-
+.about{
+  background-color: white
+}
 .hamburger {
   display: none;
   flex-direction: column;
@@ -52,7 +54,7 @@ nav ul {
   height: 3px;
   background: #fff;
 }
-/* Hero Section */
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -71,8 +73,8 @@ nav ul {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: #333;
-}
 
+}
 .hero-content p {
   font-size: 1rem;
   line-height: 1.6;
@@ -84,7 +86,7 @@ nav ul {
   border-radius: 10px;
 }
 
-/* Table */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -97,6 +99,7 @@ table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+
   
 }
 
@@ -107,7 +110,10 @@ table th {
 }
 
 table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #f2eef8;
+}
+table tr:nth-child(odd){
+  background-color: #ffffff;
 }
 
 table tr:hover {
@@ -116,12 +122,12 @@ table tr:hover {
 }
 
 .section {
-  width: 100vw; /* Full viewport width */
-  min-height: 100vh; /* Full viewport height */
+  width: 100vw;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
+  justify-content: center;
+  align-items: center;
   padding: 20px;
   text-align: center;
   padding: 130px 20px;
@@ -143,7 +149,7 @@ table tr:hover {
   margin-bottom: 30px;
   font-size: 1.1rem;
   line-height: 1.6;
-  text-align: justify; /* Justify the text */
+  text-align: justify;
 }
 
 .btn-download {
@@ -174,7 +180,7 @@ table tr:hover {
   display: flex;
   
 }
-/* Media Queries for Larger Screens */
+
 @media (min-width: 768px) {
   .hero {
     flex-direction: row;
@@ -208,7 +214,7 @@ table tr:hover {
   }
 }
 
-/* Media Queries for Mobile */
+
 @media (max-width: 767px) {
   .hero-content h1 {
     font-size: 2rem;
@@ -230,14 +236,15 @@ table tr:hover {
   position: fixed;
   bottom: 30px;
   right: 24px;
-  padding: 20px 18px;
-  font-size: 17px;
+  padding: 20px;
+  font-size: 18px;
   background: linear-gradient(to right, #9370db, #6a5acd);
   color: rgb(255, 255, 255);
   border: none;
-  border-radius: 50px;
+  border-radius:50%;
+  display: flex;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
  
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -373,27 +380,27 @@ table tr:hover {
   color: #6a5acd;
   transition: color 0.9s ease;
 }
-/* Container for the cards */
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 100px; /* Increased gap between cards */
+  gap: 100px;
   justify-content: center;
-  padding: 20px; /* Added padding for smaller screens */
+  padding: 20px;
   
 }
 
-/* Card styling */
+
 .card {
   width: 600px;
   height: 400px;
-  perspective: 1000px; /* Adds 3D perspective */
+  perspective: 1000px;
   box-shadow: 0 1px 1px rgba(0, 2, 0, 0.2);
   padding: 50px;
 }
 
 
-/* GitHub link styling */
+
 .github {
   color: #000000;
   text-decoration: none;
@@ -404,14 +411,14 @@ table tr:hover {
 }
 
 
-/* Goals Section Styling */
+
 .goals-content {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   background: #ffffff;
   border-radius: 15px;
-  animation: fadeInUp 1s ease-out; /* Fade-in animation */
+  animation: fadeInUp 1s ease-out;
 }
 .sub{
   color:  #6a5acd;
@@ -463,7 +470,7 @@ table tr:hover {
 .points li {
   margin: 20px 0;
   padding: 25px;
-  background:#695acd04; /* Light blue background */
+  background:#695acd04;
   border-radius: 10px;
   transition: transform 0.3s ease, background 0.3s ease;
   position: relative;
@@ -490,7 +497,7 @@ table tr:hover {
 
 .points li:hover {
   transform: translateY(-5px);
-  background-color:#f6f1f7; /* Slightly darker on hover */
+  background-color:#f6f1f7;
   transition: background-color 0.9s ease;
 }
 
@@ -498,7 +505,7 @@ table tr:hover {
   color: #6a5acd;
 }
 
-/* Fade-in Animation */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -510,7 +517,7 @@ table tr:hover {
   }
 }
 
-/* Responsive Design for Smaller Screens */
+
 @media (max-width: 768px) {
   .goals-content {
     padding: 15px;
@@ -524,26 +531,26 @@ table tr:hover {
     padding: 10px;
   }
 }
-/* Responsive Design for Smaller Phones */
+
 @media (max-width: 600px) {
   .card-container {
-    gap: 20px; /* Smaller gap for smaller screens */
+    gap: 20px;
   }
 
   .card {
-    width: 100%; /* Full width on small screens */
-    height: auto; /* Auto height to fit content */
-    max-width: 300px; /* Limit maximum width */
+    width: 100%;
+    height: auto;
+    max-width: 300px;
   }
 
   .card-inner {
-    height: auto; /* Auto height to fit content */
-    min-height: 300px; /* Minimum height for consistency */
+    height: auto;
+    min-height: 300px;
   }
 
   .card-front,
   .card-back {
-    padding: 15px; /* Smaller padding for smaller screens */
+    padding: 15px;
   }
 }
 @media (max-width: 768px) {
