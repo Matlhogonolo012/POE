@@ -38,7 +38,9 @@ nav ul {
   padding: 0;
 }
 .about{
-  background-color: white
+  background-color: white;
+  padding: 30px;
+  
 }
 .hamburger {
   display: none;
@@ -389,13 +391,77 @@ table tr:hover {
   padding: 20px;
   
 }
+/* Default styles for larger screens */
+.about-me {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1000px; /* Use max-width instead of fixed width */
+  width: 100%; /* Ensure it takes full width of its container */
+  margin: 0 auto; /* Center the container */
 
+}
+
+
+
+.lottie-container {
+  width: 400px;
+  height: 400px;
+  flex-shrink: 0;
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 768px) {
+  .about-me {
+    flex-direction: column; /* Stack text and animation vertically */
+    align-items: center; /* Center-align items */
+    gap: 20px;
+    max-width: 100%; /* Allow full width on smaller screens */
+    padding: 15px; /* Adjust padding for tablets */
+  }
+
+  .lottie-container {
+    width: 300px;
+    height: 300px;
+    margin-top: 0; /* Reset margin-top for stacked layout */
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 480px) {
+  .about-me {
+    flex-direction: column; /* Ensure vertical stacking */
+    align-items: center; /* Center-align items */
+    gap: 10px;
+    margin-top: 20px; /* Adjust margin for mobile */
+    padding: 10px; /* Adjust padding for mobile */
+  }
+
+  .lottie-container {
+    width: 200px;
+    height: 200px;
+    order: -1; /* Move Lottie animation to the top */
+    margin-top: 0; /* Reset margin-top */
+  }
+
+  .about-me-text {
+    text-align: center; /* Center-align text on small screens */
+  }
+
+  .sub {
+    font-size: 1.5rem; /* Adjust heading size for mobile */
+  }
+
+  .about {
+    font-size: 0.9rem; /* Adjust paragraph size for mobile */
+  }
+}
 
 .card {
   width: 600px;
   height: 400px;
   perspective: 1000px;
-  box-shadow: 0 1px 1px rgba(0, 2, 0, 0.2);
+  box-shadow: 0 1px 1px rgba(0, 2, 0, 0.5);
   padding: 50px;
 }
 

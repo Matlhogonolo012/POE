@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import  { useState, useEffect, useRef} from "react";
 import Section from "../components/section";
 import Header from "../components/header";
 import { FaDownload, FaEnvelope, FaPhone, FaGithub, FaLinkedin, } from 'react-icons/fa';
@@ -14,15 +14,21 @@ import { SiMongodb } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
 import { FaLink } from "react-icons/fa6";
 import "bootstrap/dist/css/bootstrap.min.css";
+import lottie from "lottie-web";
+import animationData from "../assets/hi.json";
 
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState("");
+  const animationContainer = useRef(null);
+  const animationInstance = useRef(null);
+
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     const observerOptions = {
-      
-      
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5, // Adjust this value as needed
     };
 
     const observerCallback = (entries) => {
@@ -34,7 +40,6 @@ const HomePage = () => {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-
     sections.forEach((section) => observer.observe(section));
 
     return () => {
@@ -42,6 +47,22 @@ const HomePage = () => {
     };
   }, []);
 
+  // Lottie Animation Setup
+  useEffect(() => {
+    animationInstance.current = lottie.loadAnimation({
+      container: animationContainer.current,
+      animationData: animationData,
+      renderer: "svg",
+      loop: true, // Play once
+      autoplay: true, // Do not autoplay initially
+    });
+
+    return () => {
+      if (animationInstance.current) {
+        animationInstance.current.destroy(); // Cleanup animation on unmount
+      }
+    };
+  }, []);
   return (
     <div className="home-page">
       <Header />
@@ -55,13 +76,13 @@ const HomePage = () => {
           <h1>Matlhogonolo Naoa</h1>
           
           <p >
-            <strong className="small-t">CodeTribe Location:</strong> CodeTribe Academy - Ga-Rankuwa
+            <strong className="small-t">CodeTribe Location:</strong> Ga-Rankuwa
           </p>
           <p>
-            <strong className="small-t"> Program Enrolled:</strong> Full Stack Web Development
+            <strong className="small-t"> Program Enrolled:</strong> Software and Web Development
           </p>
           <p>
-          <div className="contact-info">
+          {/* <div className="contact-info">
       <strong className="small-t">Contact Information:</strong>
       <p>
         <FaEnvelope className="icon" /> Email: tlhoxi12@gmail.com
@@ -69,19 +90,29 @@ const HomePage = () => {
       <p>
         <FaPhone className="icon" /> Phone: +27 81 368 4688
       </p>
-    </div>
-            <strong className="small-t">Date:</strong> Last Updated: 13 January 2025
+    </div> */}
+            <strong className="small-t">Date:</strong> Last Updated: 20 January 2025
           </p>
           <button className="btn-download">
            <FaDownload />  <a className="link" href="/src/assets/cv.pdf" download>Download CV</a>
           </button>
           <div className="social-links">
+
             <a href="https://github.com/Matlhogonolo012" target="_blank" rel="noopener noreferrer">
               <FaGithub />
             </a>
             <a href="https://www.linkedin.com/in/matlhogonolo-naoa-924255340/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin />
             </a>
+        
+          <a href="mailto:tlhoxi12@gmail.com" className="link">
+            <FaEnvelope  /> 
+          </a>
+        
+          <a href="tel:+27813684688" className="link">
+            <FaPhone  /> 
+          </a>
+        
           </div>
         </div>
         <div className="col-md-6">
@@ -90,18 +121,42 @@ const HomePage = () => {
               </div>
         </div>
         </div>
-      </Section>
-
-      <Section
+    
+   </Section>
+   
+   <Section
         id="intro"
         title="Personal Introduction"
         isActive={activeSection === "intro"}
-      >
-        <h2 className="sub">Hello, I am Matlhogonolo Naoa</h2>
-        <p className="about">
-          I am a dedicated and driven web developer with a passion for learning and mastering new technologies. My journey at CodeTribe Academy has equipped me with the skills and knowledge to build dynamic, user-centric web applications. I am deeply committed to advancing my expertise and aspire to become a full-stack developer, contributing meaningfully to open-source projects and the broader tech community. My goal is to continuously evolve as a developer, staying at the forefront of innovation and creating impactful solutions.
-        </p>
+      >  <div
+            ref={animationContainer}
+            style={{
+              width: "400px",
+              height: "400px",
+              flexShrink: 0,
+             
+            }}
+          ></div>
+        <div className="about-me" style={{ display: "flex", alignItems: "flex-start", gap: "40px" }}>
+          {/* About Me Text */}
+          <div style={{ flex: 1 }}>
+        
+            <h2 className="sub"> I am Matlhogonolo Naoa</h2>
+            <p className="about" >
+              I am a dedicated and driven web developer with a passion for learning and mastering new technologies. My journey at CodeTribe Academy has equipped me with the skills and knowledge to build dynamic, user-centric web applications. I am deeply committed to advancing my expertise and aspire to become a full-stack developer, contributing meaningfully to open-source projects and the broader tech community. My goal is to continuously evolve as a developer, staying at the forefront of innovation and creating impactful solutions.
+            </p>
+          </div>
+
+          {/* Lottie Animation Container */}
+      
+        </div>
       </Section>
+
+
+       
+  
+
+   
 
       
 
