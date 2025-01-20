@@ -2,7 +2,7 @@ import  { useState, useEffect } from "react";
 import Section from "../components/section";
 import Header from "../components/header";
 import { FaDownload, FaEnvelope, FaPhone, FaGithub, FaLinkedin, } from 'react-icons/fa';
-
+import HeroImage from "../../src/assets/UntitledProject(1).jpg"
 import FeaturedProjects from "../components/featuredProjects";
 import { FaHtml5 } from "react-icons/fa";
 import { FaCss3Alt } from "react-icons/fa";
@@ -85,11 +85,7 @@ const HomePage = () => {
         </div>
         <div className="col-md-6">
               <div className="hero-image">
-                <img
-                  src="../../src/assets/UntitledProject(1).jpg"
-                  alt="Matlhogonolo Naoa"
-                  className="img-fluid rounded"
-                />
+              <img src={HeroImage} alt="hero-image" />
               </div>
         </div>
         </div>
