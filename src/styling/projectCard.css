@@ -1,12 +1,13 @@
-/* src/styling/projectCard.css */
+
 .project-card {
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
+  width: 100%;
   max-width: 300px;
-
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background: #fff;
+  margin: 0 auto;
 }
 
 .card-image {
@@ -22,13 +23,11 @@
 .card-title {
   font-size: 1.5rem;
   margin: 0 0 8px 0;
-  color:   #6a5acd;
-  
+  color: #6a5acd;
 }
 
 .card-text {
   font-size: 1rem;
-
   margin: 0 0 16px 0;
 }
 
@@ -38,11 +37,8 @@
 
 .project-details p {
   margin: 8px 0;
-  font-size: 0.9rem;
- 
+  font-size: 0.5rem;
 }
-
-
 
 .language-list {
   display: flex;
@@ -55,10 +51,11 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  background: #9370db;
+  background: #dbd0f3be;
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.9rem;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .project-links {
@@ -66,7 +63,6 @@
   gap: 8px;
   margin: 16px 0;
 }
-
 
 .card-footer {
   display: flex;
@@ -80,7 +76,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color:#9370db;
+  color: #9370db;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
@@ -88,16 +84,159 @@
 }
 
 .card-button:hover {
-  color: #9370db;
-  transition: background-color 0.9s ease-in-out;
+  color: #6a5acd;
+  transition: color 0.3s ease-in-out;
 }
+
 .card-image.placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: #f0f0f0;
-  
-  
   font-size: 1.2em;
+}
+
+
+
+
+@media (max-width: 1023.98px) {
+  .project-card {
+    max-width: 100%;
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+  }
+
+  .language-item {
+    font-size: 0.85rem;
+  }
+}
+
+
+@media (max-width: 767.98px) {
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+
+  .project-details p {
+    font-size: 0.85rem;
+  }
+
+  .language-item {
+    font-size: 0.8rem;
+  }
+}
+
+
+@media (max-width: 599.98px) {
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-text {
+    font-size: 0.85rem;
+  }
+
+  .project-details p {
+    font-size: 0.8rem;
+  }
+
+  .language-item {
+    font-size: 0.75rem;
+  }
+}
+
+
+@media (max-width: 479.98px) {
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-text {
+    font-size: 0.8rem;
+  }
+
+  .project-details p {
+    font-size: 0.75rem;
+  }
+
+  .language-item {
+    font-size: 0.7rem;
+  }
+}
+
+
+@media (max-width: 319.98px) {
+  .project-card {
+    border-radius: 4px;
+  }
+
+  .card-body {
+    padding: 12px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.75rem;
+  }
+
+  .project-details p {
+    font-size: 0.7rem;
+  }
+
+  .language-item {
+    font-size: 0.65rem;
+    padding: 3px 6px;
+  }
+
+  .project-links {
+    gap: 6px;
+  }
+
+  .card-button {
+    font-size: 1rem;
+  }
+
+  .card-footer {
+    padding: 6px 12px;
+  }
+
+.card-text.truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.see-more-button {
+  background: none;
+  border: none;
+  color: #6a5acd;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 8px;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.see-more-button:hover {
+  color: #9370db;
+  text-decoration: underline;
+}
 }

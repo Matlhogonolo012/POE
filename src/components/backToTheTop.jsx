@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaAngleUp } from "react-icons/fa6";
+import "../../src/styling/back-to-top.css"
+
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 

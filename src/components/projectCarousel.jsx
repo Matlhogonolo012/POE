@@ -24,22 +24,18 @@ const ProjectCarousel = ({ projects }) => {
   // Update the number of cards per slide based on screen width
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 576) {
-        setSlidesToShow(1); // Extra small devices: 1 card per slide
+      if (window.innerWidth < 375) {
+        setSlidesToShow(1); // 1 card for very small devices
       } else if (window.innerWidth < 768) {
-        setSlidesToShow(1); // Small devices: 1 card per slide
-      } else if (window.innerWidth < 992) {
-        setSlidesToShow(2); // Medium devices: 2 cards per slide
-      } else if (window.innerWidth < 1500) {
-        setSlidesToShow(3); // Large devices: 3 cards per slide
+        setSlidesToShow(1); // 1 card for small devices (375px - 767px)
+      } else if (window.innerWidth < 1026) {
+        setSlidesToShow(2); // 2 cards for medium devices (768px - 1023px)
       } else {
-        setSlidesToShow(3); // Extra large devices: 4 cards per slide
+        setSlidesToShow(3); // 3 cards for large devices (1024px and above)
       }
     };
-
-    // Debounce the resize handler to make it smoother
-    const debouncedResize = debounce(handleResize, 100); // Adjust delay as needed
-
+  
+    const debouncedResize = debounce(handleResize, 100); // Debounce for smoother resizing
     handleResize(); // Set initial value
     window.addEventListener("resize", debouncedResize); // Update on window resize
     return () => window.removeEventListener("resize", debouncedResize); // Cleanup
@@ -102,7 +98,6 @@ const ProjectCarousel = ({ projects }) => {
         <span className="carousel-control-next-icon"></span>
       </button>
 
-      {/* Custom Indicators (Dots) for All Screen Sizes */}
       <div className="carousel-indicators">
         {projectChunks.map((_, index) => (
           <button

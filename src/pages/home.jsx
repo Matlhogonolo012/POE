@@ -1,8 +1,8 @@
-import  { useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 import Section from "../components/section";
 import Header from "../components/header";
-import { FaDownload, FaEnvelope, FaPhone, FaGithub, FaLinkedin, } from 'react-icons/fa';
-import HeroImage from "../../src/assets/UntitledProject(1).jpg"
+import { FaDownload, FaEnvelope, FaPhone, FaGithub, FaLinkedin } from 'react-icons/fa';
+import HeroImage from "../../src/assets/UntitledProject(1).jpg";
 import FeaturedProjects from "../components/featuredProjects";
 import { FaHtml5 } from "react-icons/fa";
 import { FaCss3Alt } from "react-icons/fa";
@@ -16,13 +16,15 @@ import { FaLink } from "react-icons/fa6";
 import "bootstrap/dist/css/bootstrap.min.css";
 import lottie from "lottie-web";
 import animationData from "../assets/hi.json";
+import FloatingSidebar from "../components/floatingSidebar";
 
 const HomePage = () => {
   const [activeSection, setActiveSection] = useState("");
   const animationContainer = useRef(null);
   const animationInstance = useRef(null);
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
-
+  // Intersection Observer for Active Section
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     const observerOptions = {
@@ -46,16 +48,32 @@ const HomePage = () => {
       sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById("cover-page");
+      if (heroSection) {
+        const heroBottom = heroSection.getBoundingClientRect().bottom;
+        // Show sidebar when the hero section is out of view
+        setIsSidebarVisible(heroBottom < 0);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   // Lottie Animation Setup
   useEffect(() => {
-    animationInstance.current = lottie.loadAnimation({
-      container: animationContainer.current,
-      animationData: animationData,
-      renderer: "svg",
-      loop: true, // Play once
-      autoplay: true, // Do not autoplay initially
-    });
+    if (animationContainer.current) {
+      animationInstance.current = lottie.loadAnimation({
+        container: animationContainer.current,
+        animationData: animationData,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+      });
+    }
 
     return () => {
       if (animationInstance.current) {
@@ -63,252 +81,208 @@ const HomePage = () => {
       }
     };
   }, []);
+
   return (
     <div className="home-page">
       <Header />
-      <Section
-        id="cover-page"
-        isActive={activeSection === "cover-page"}
-        
-      >
-        <div className="hero">
-        <div className="hero-content">
-          <h1>Matlhogonolo Naoa</h1>
-          
-          <p >
-            <strong className="small-t">CodeTribe Location:</strong> Ga-Rankuwa
-          </p>
-          <p>
-            <strong className="small-t"> Program Enrolled:</strong> Software and Web Development
-          </p>
-          <p>
-          {/* <div className="contact-info">
-      <strong className="small-t">Contact Information:</strong>
+      {/* Cover Page Section */}
+      <Section id="cover-page" isActive={activeSection === "cover-page"}>
+  <div className="hero">
+    <div className="hero-content">
+      <h1>Matlhogonolo Naoa</h1>
       <p>
-        <FaEnvelope className="icon" /> Email: tlhoxi12@gmail.com
+        <strong className="small-t">CodeTribe Location:</strong> Ga-Rankuwa
       </p>
       <p>
-        <FaPhone className="icon" /> Phone: +27 81 368 4688
+        <strong className="small-t">Program Enrolled:</strong> Software and Web Development
       </p>
-    </div> */}
-            <strong className="small-t">Date:</strong> Last Updated: 20 January 2025
-          </p>
-          <button className="btn-download">
-           <FaDownload />  <a className="link" href="/src/assets/cv.pdf" download>Download CV</a>
-          </button>
-          <div className="social-links">
-
-            <a href="https://github.com/Matlhogonolo012" target="_blank" rel="noopener noreferrer">
-              <FaGithub />
-            </a>
-            <a href="https://www.linkedin.com/in/matlhogonolo-naoa-924255340/" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin />
-            </a>
-        
-          <a href="mailto:tlhoxi12@gmail.com" className="link">
-            <FaEnvelope  /> 
-          </a>
-        
-          <a href="tel:+27813684688" className="link">
-            <FaPhone  /> 
-          </a>
-        
-          </div>
-        </div>
-        <div className="col-md-6">
-              <div className="hero-image">
-              <img src={HeroImage} alt="hero-image" />
-              </div>
-        </div>
-        </div>
-    
-   </Section>
-   
-   <Section
-        id="intro"
-        title="Personal Introduction"
-        isActive={activeSection === "intro"}
-      >  <div
-            ref={animationContainer}
-            style={{
-              width: "400px",
-              height: "400px",
-              flexShrink: 0,
-             
-            }}
-          ></div>
-        <div className="about-me" style={{ display: "flex", alignItems: "flex-start", gap: "40px" }}>
-          {/* About Me Text */}
-          <div style={{ flex: 1 }}>
-        
-            <h2 className="sub"> I am Matlhogonolo Naoa</h2>
-            <p className="about" >
-              I am a dedicated and driven web developer with a passion for learning and mastering new technologies. My journey at CodeTribe Academy has equipped me with the skills and knowledge to build dynamic, user-centric web applications. I am deeply committed to advancing my expertise and aspire to become a full-stack developer, contributing meaningfully to open-source projects and the broader tech community. My goal is to continuously evolve as a developer, staying at the forefront of innovation and creating impactful solutions.
-            </p>
-          </div>
-
-          {/* Lottie Animation Container */}
-      
-        </div>
-      </Section>
-
-
-       
-  
-
-   
-
-      
-
-      <Section
-  id="skills"
-  title="Skills Matrix"
-  isActive={activeSection === "skills"}
->
-  <h3 className="sub">Frontend Skills</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Skill</th>
-        <th>Proficiency Level</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>HTML <FaHtml5 /></td>
-        <td>Intermediate</td>
-        <td>Used in multiple projects</td>
-      </tr>
-      <tr>
-        <td>CSS <FaCss3Alt /></td>
-        <td>Advanced</td>
-        <td>Styled responsive layouts</td>
-      </tr>
-      <tr>
-        <td>JavaScript <TbBrandJavascript /></td>
-        <td>Intermediate</td>
-        <td>Developed dynamic web applications</td>
-      </tr>
-      <tr>
-        <td>React.js <FaReact /></td>
-        <td>Intermediate</td>
-        <td>Built interactive UIs</td>
-      </tr>
-      <tr>
-        <td>React Native <TbBrandReactNative /></td>
-        <td>Intermediate</td>
-        <td>Built interactive mobile UIs</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h3 className="sub">Backend Skills</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Skill</th>
-        <th>Proficiency Level</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Node.js <FaNodeJs /></td>
-        <td>Intermediate</td>
-        <td>Built server-side applications</td>
-      </tr>
-      <tr>
-        <td>Express.js</td>
-        <td>Intermediate</td>
-        <td>Developed RESTful APIs</td>
-      </tr>
-      <tr>
-        <td>MongoDB <SiMongodb /></td>
-        <td>Intermediate</td>
-        <td>Managed NoSQL databases</td>
-      </tr>
-      <tr>
-        <td>Firebase <IoLogoFirebase /></td>
-        <td>Beginner</td>
-        <td>Used for real-time database and authentication</td>
-      </tr>
-    </tbody>
-  </table>
-</Section>
-
-      <Section
-        id="projects"
-        title="Individual Projects"
-        isActive={activeSection === "projects"}
-      >
-       
-        <div className="featured-projects">
-          
-        <FeaturedProjects />
-        </div>
-
-       
-      </Section>
-
-      <Section
-  id="group-projects"
-  title="Team Projects"
-  isActive={activeSection === "group-projects"}
->
-  <div className="card-container">
-    {/* Card 1 */}
-    <div className="card">
-      <div className="card-inner">
-        <div className="goals-content">
-          <h3 className="goals-content">Restaurant Reservation App</h3>
-          <p><strong>Description:</strong> An app for managing restaurants and its reservations from users</p>
-      
-          <p><strong>Team Members:</strong> Matlhogonolo Naoa and Tshepo Madira</p>
-          <p><strong>Tech Stack:</strong> Expo, <TbBrandReactNative />  <SiMongodb /> <FaNodeJs /> </p>
-          <p><strong> Experience:</strong> We used GitHub for version control</p>
-          <p>
-            <div className="div">
-              <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
-              <FaGithub />
-            </a>
-            <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
-            <FaLink />
-            </a> 
-            </div>
-           
-          </p>
-        </div>
+      <p>
+        <strong className="small-t">Date:</strong> Last Updated: 20 January 2025
+      </p>
+      <button className="btn-download">
+        <FaDownload /> <a className="link" href="/src/assets/cv.pdf" download>Download CV</a>
+      </button>
+      <div className="social-links">
+        <a href="https://github.com/Matlhogonolo012" target="_blank" rel="noopener noreferrer">
+          <FaGithub />
+        </a>
+        <a href="https://www.linkedin.com/in/matlhogonolo-naoa-924255340/" target="_blank" rel="noopener noreferrer">
+          <FaLinkedin />
+        </a>
+        <a href="mailto:tlhoxi12@gmail.com" className="link">
+          <FaEnvelope />
+        </a>
+        <a href="tel:+27813684688" className="link">
+          <FaPhone />
+        </a>
       </div>
     </div>
-
-
-    <div className="card">
-      <div className="card-inner">
-        <div className="goals-content">
-          <h3 className="goals-content">Weather Based Travel Planner with API Integration</h3>
-          <p><strong>Description:</strong> An app for planning travel based on weather conditions</p>
-      
-          <p><strong>Team Members:</strong> Matlhogonolo Naoa and Tshepo Madira</p>
-          <p><strong>Tech Stack:</strong>  Express.js, <FaReact />,  <SiMongodb /> , <FaNodeJs /></p>
-          <p><strong>Collaboration Experience:</strong> We used GitHub for version control and Trello for task management</p>
-          <p>
-           
-            <div className="div">
-              <a className="github" href="https://github.com/Matlhogonolo012/weather-app-frontend.git">
-              <FaGithub />
-            </a>
-            <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
-            <FaLink />
-            </a> 
-            </div>
-          </p>
-        </div>
+    <div className="col-md-6">
+      <div className="hero-image">
+        <img src={HeroImage} alt="hero-image" />
       </div>
     </div>
   </div>
 </Section>
+      <FloatingSidebar className={isSidebarVisible ? "visible" : ""} />
+      
+      <Section id="intro" title="Personal Introduction" isActive={activeSection === "intro"}>
+  <div className="content-container">
+    <div className="lottie-container" ref={animationContainer}></div>
+    <div className="about-me">
+      <h2 className="sub">
+      <TextAnimation
+  phrases={[
+    "Matlhogonolo Naoa, at your service!",
+    "A passionate developer creating digital solutions",
+    "Turning ideas into functional, beautiful applications",
+    "Building seamless web experiences",
+    "Aspiring to innovate and inspire through technology",
+    "Coffee in one hand, code in the other",
+    "Driven by curiosity and a hunger for knowledge",
+  ]}
+/>
+      </h2>
+      <p className="about">
+        I am a dedicated and driven web developer with a passion for learning and mastering new technologies. My journey at CodeTribe Academy has equipped me with the skills and knowledge to build dynamic, user-centric web applications. I am deeply committed to advancing my expertise and aspire to become a full-stack developer, contributing meaningfully to open-source projects and the broader tech community. My goal is to continuously evolve as a developer, staying at the forefront of innovation and creating impactful solutions.
+      </p>
+    </div>
+  </div>
+</Section>
 
+      {/* Skills Section */}
+      <Section id="skills" title="Skills Matrix" isActive={activeSection === "skills"}>
+        <h3 className="sub">Frontend Skills</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Skill</th>
+              <th>Proficiency Level</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HTML <FaHtml5 /></td>
+              <td>Intermediate</td>
+              <td>Used in multiple projects</td>
+            </tr>
+            <tr>
+              <td>CSS <FaCss3Alt /></td>
+              <td>Advanced</td>
+              <td>Styled responsive layouts</td>
+            </tr>
+            <tr>
+              <td>JavaScript <TbBrandJavascript /></td>
+              <td>Intermediate</td>
+              <td>Developed dynamic web applications</td>
+            </tr>
+            <tr>
+              <td>React.js <FaReact /></td>
+              <td>Intermediate</td>
+              <td>Built interactive UIs</td>
+            </tr>
+            <tr>
+              <td>React Native <TbBrandReactNative /></td>
+              <td>Intermediate</td>
+              <td>Built interactive mobile UIs</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 className="sub">Backend Skills</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Skill</th>
+              <th>Proficiency Level</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Node.js <FaNodeJs /></td>
+              <td>Intermediate</td>
+              <td>Built server-side applications</td>
+            </tr>
+            <tr>
+              <td>Express.js</td>
+              <td>Intermediate</td>
+              <td>Developed RESTful APIs</td>
+            </tr>
+            <tr>
+              <td>MongoDB <SiMongodb /></td>
+              <td>Intermediate</td>
+              <td>Managed NoSQL databases</td>
+            </tr>
+            <tr>
+              <td>Firebase <IoLogoFirebase /></td>
+              <td>Beginner</td>
+              <td>Used for real-time database and authentication</td>
+            </tr>
+          </tbody>
+        </table>
+      </Section>
+
+      {/* Projects Section */}
+      <Section id="projects" title="Individual Projects" isActive={activeSection === "projects"}>
+        <div className="featured-projects">
+          <FeaturedProjects />
+        </div>
+      </Section>
+
+      {/* Group Projects Section */}
+      <Section id="group-projects" title="Team Projects" isActive={activeSection === "group-projects"}>
+        <div className="card-container">
+          {/* Card 1 */}
+          <div className="card">
+            <div className="card-inner">
+              <div className="goals-content">
+                <h3>Restaurant Reservation App</h3>
+                <p><strong>Description:</strong> An app for managing restaurants and its reservations from users</p>
+                <p><strong>Team Members:</strong> Matlhogonolo Naoa and Tshepo Madira</p>
+                <p><strong>Tech Stack:</strong> Expo, <TbBrandReactNative /> <SiMongodb /> <FaNodeJs /></p>
+                <p><strong>Experience:</strong> We used GitHub for version control</p>
+                <p>
+                  <div className="div">
+                    <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
+                      <FaGithub />
+                    </a>
+                    <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
+                      <FaLink />
+                    </a>
+                  </div>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="card">
+            <div className="card-inner">
+              <div className="goals-content">
+                <h3>Weather Based Travel Planner with API Integration</h3>
+                <p><strong>Description:</strong> An app for planning travel based on weather conditions</p>
+                <p><strong>Team Members:</strong> Matlhogonolo Naoa and Tshepo Madira</p>
+                <p><strong>Tech Stack:</strong> Express.js, <FaReact />, <SiMongodb />, <FaNodeJs /></p>
+                <p><strong>Collaboration Experience:</strong> We used GitHub for version control and Trello for task management</p>
+                <p>
+                  <div className="div">
+                    <a className="github" href="https://github.com/Matlhogonolo012/weather-app-frontend.git">
+                      <FaGithub />
+                    </a>
+                    <a className="github" href="https://github.com/Matlhogonolo012/Restaurant-Reservation-App-Frontend-Admin.git">
+                      <FaLink />
+                    </a>
+                  </div>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+  
 <Section
   id="goals"
   title="Post-Program Goals"
@@ -347,6 +321,48 @@ const HomePage = () => {
 </Section>
     </div>
   );
+};
+const TextAnimation = ({ phrases }) => {
+  const textRef = useRef(null);
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const textElement = textRef.current;
+    let timeout;
+
+    const typeText = () => {
+      const currentPhrase = phrases[currentPhraseIndex];
+      const isLastPhrase = currentPhraseIndex === phrases.length - 1;
+
+      if (!isDeleting) {
+        // Typing logic
+        setCurrentText((prev) => currentPhrase.substring(0, prev.length + 1));
+        if (currentText === currentPhrase) {
+          // Wait for a moment before starting to delete
+          timeout = setTimeout(() => setIsDeleting(true), 1000); // Adjust delay here
+        }
+      } else {
+        // Deleting logic
+        setCurrentText((prev) => prev.substring(0, prev.length - 1));
+        if (currentText === "") {
+          setIsDeleting(false);
+          // Move to the next phrase or loop back to the first
+          setCurrentPhraseIndex((prev) => (isLastPhrase ? 0 : prev + 1));
+        }
+      }
+
+      // Update the text element with the current text and cursor
+      textElement.innerHTML = currentText + '<span class="cursor"></span>';
+    };
+
+    timeout = setTimeout(typeText, isDeleting ? 60 : 100); // Adjust typing and deleting speed here
+
+    return () => clearTimeout(timeout);
+  }, [currentText, isDeleting, currentPhraseIndex, phrases]);
+
+  return <span ref={textRef}></span>;
 };
 
 export default HomePage;

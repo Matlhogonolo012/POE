@@ -20,6 +20,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const ProjectCard = ({ project }) => {
   const [languages, setLanguages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [expanded, setExpanded] = useState(false); // State to manage expanded content
 
   useEffect(() => {
     const fetchLanguages = async () => {
@@ -52,6 +53,11 @@ const ProjectCard = ({ project }) => {
     node: <FaNodeJs />,
   };
 
+  // Function to toggle expanded state
+  const toggleExpand = () => {
+    setExpanded(!expanded);
+  };
+
   return (
     <div className="project-card">
       {}
@@ -70,7 +76,9 @@ const ProjectCard = ({ project }) => {
         <h3 className="card-title">{project.name}</h3>
 
         {}
-        <p className="card-text">{project.description}</p>
+        <p className={`card-text ${expanded ? "" : "truncate"}`}>
+          {project.description}
+        </p>
 
         {}
         <div className="project-details">
@@ -110,6 +118,11 @@ const ProjectCard = ({ project }) => {
         </div>
 
         {}
+        {project.description && project.description.length > 100 && (
+          <button className="see-more-button" onClick={toggleExpand}>
+            {expanded ? "See Less" : "See More"}
+          </button>
+        )}
       </div>
 
       {}

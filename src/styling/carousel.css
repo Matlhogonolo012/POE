@@ -1,166 +1,106 @@
-/* Carousel Container */
+/* Base styles for the carousel */
 .custom-carousel {
-  padding: 30px 0;
   position: relative;
+  width: 100%;
   overflow: hidden;
-  max-width: 1500px; /* Maximum width for larger screens */
-  margin: 0 auto; /* Center the carousel */
-}
-
-/* Carousel Inner */
-.custom-carousel .carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
-}
-
-/* Carousel Item */
-.custom-carousel .carousel-item {
-  display: flex;
-  justify-content: center;
+  padding: 20px 0;
   align-items: center;
-  padding: 10px;
-  flex: 0 0 100%;
-  width: 100%;
-  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-  opacity: 0; /* Hidden by default */
-  visibility: hidden; /* Hidden by default */
 }
 
-.custom-carousel .carousel-item.active {
-  opacity: 1; /* Visible when active */
-  visibility: visible; /* Visible when active */
-}
-
-/* Carousel Columns */
-.custom-carousel .carousel-item .col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  flex: 0 0 auto;
-  width: calc(100% / var(--slides-to-show)); /* Dynamic width based on slides to show */
-}
-
-/* Project Card Styling */
+/* Base styles for the project card */
 .custom-carousel .project-card {
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  max-width: 300px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: #fff;
-  margin: 0 auto; /* Center the card */
+  background-color: #fff;
+  margin: 10px; /* Uniform spacing between cards */
 }
 
-.custom-carousel .project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.custom-carousel .project-card .card-body {
-  padding: 16px;
-}
-
-.custom-carousel .project-card .card-title {
-  font-size: 1.5rem;
-  margin: 0 0 8px 0;
-  white-space: nowrap; /* Prevent wrapping */
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Add ellipsis for overflow */
-}
-
-.custom-carousel .project-card .card-text {
-  font-size: 1rem;
-  color: #555;
-  margin: 0 0 16px 0;
-  overflow: hidden; /* Hide overflow */
-  display: -webkit-box;
- 
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis; /* Add ellipsis for overflow */
-}
-
-.custom-carousel .project-card .project-details {
-  margin: 16px 0;
-}
-
-.custom-carousel .project-card .project-details p {
-  margin: 8px 0;
- 
-  
-}
-
-.custom-carousel .project-card .project-details strong {
-  color: #333;
-  font-size: 16px;
-}
-
-.custom-carousel .project-card .language-list {
+/* Ensure no horizontal overflow */
+.custom-carousel .row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
+  justify-content: center;
+  gap: 60px; /* Default gap for larger screens */
 }
 
-.custom-carousel .project-card .language-item {
+/* Column width adjustments for responsive layout */
+.custom-carousel .col {
+  flex: 0 0 auto; /* Allow columns to shrink */
   display: flex;
-  align-items: center;
-  gap: 4px;
-  background: #f0f0f0;
-  padding: 4px 8px;
-  border-radius: 4px;
-
-}
-
-.custom-carousel .project-card .project-links {
-  display: flex;
-  gap: 8px;
-  margin: 16px 0;
-}
-
-.custom-carousel .project-card .project-link {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  text-decoration: none;
-  color: #333;
-  font-size: 25px;
-}
-
-.custom-carousel .project-card .project-link:hover {
-  text-decoration: underline;
-  color:   #6a5acd;
-  transition: color 0.9s ease;
-}
-
-.custom-carousel .project-card .card-footer {
-  display: flex;
-  justify-content: flex-end;
-  padding: 8px 16px;
-  background: #f8f9fa;
-  border-top: 1px solid #ddd;
-}
-
-.custom-carousel .project-card .card-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color:   #6a5acd;
-
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
   justify-content: center;
 }
 
-.custom-carousel .project-card .card-button:hover {
-  color: #9370db;
-  transition: color 0.9s ease-in-out;
+/* Custom card image styling */
+.custom-carousel .project-card img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure images cover the space */
 }
 
-/* Custom Indicators */
+/* Adjusting card body layout */
+.custom-carousel .project-card .card-body {
+  flex: 1; /* Allow card body to grow and take remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px; /* Padding inside card */
+}
+
+/* Custom arrows */
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-control-next {
+  right: 10px;
+}
+
+/* Adjust arrows' position based on content height */
+@media (max-width: 576px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    top: 50%; /* Keep arrows vertically centered */
+    transform: translateY(-50%); /* Center them vertically */
+  }
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+/* Custom indicators (dots) */
 .custom-carousel .carousel-indicators {
   position: absolute;
   bottom: 10px; /* Adjust this value to position indicators properly */
@@ -184,174 +124,119 @@
 }
 
 .custom-carousel .carousel-indicators .active {
-  background-color:#9370db;
-}
-
-/* Custom Arrows */
-.custom-carousel .carousel-control-prev,
-.custom-carousel .carousel-control-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0, 0, 0, 0);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-  transition: background-color 0.3s ease;
-  z-index: 20; /* Ensure arrows are above other elements */
-  color: #9370db;
-}
-
-.custom-carousel .carousel-control-prev {
-  left: 10px;
-  
-}
-
-.custom-carousel .carousel-control-next {
-  right: 10px;
-}
-
-.custom-carousel .carousel-control-prev:hover,
-.custom-carousel .carousel-control-next:hover {
-  background-color: rgba(61, 56, 61, 0.247);
-  transition: background-color 0.9s ease-in-out;
-}
-
-.custom-carousel .carousel-control-prev-icon,
-.custom-carousel .carousel-control-next-icon {
-  filter: brightness(0) saturate(100%) invert(40%) sepia(100%) saturate(2000%) hue-rotate(200deg);
-  width: 20px;
-  height: 20px;
+  background-color: #9370db;
 }
 
 /* Responsive Adjustments */
 
-/* Large Desktops (1200px and above) */
-@media (min-width: 1200px) {
-  .custom-carousel .carousel-control-prev,
-  .custom-carousel .carousel-control-next {
-    width: 45px;
-    height: 45px;
+/* Small devices (375px and below) */
+@media (max-width: 375px) {
+  .custom-carousel .project-card {
+    width: 250px; /* Smaller width for very small devices */
   }
 
-  .custom-carousel .carousel-control-prev-icon,
-  .custom-carousel .carousel-control-next-icon {
-    width: 22px;
-    height: 22px;
-  }
-}
-
-/* Desktops (1024px - 1199px) */
-@media (max-width: 1199.98px) {
-  .custom-carousel .carousel-control-prev,
-  .custom-carousel .carousel-control-next {
-    width: 40px;
-    height: 40px;
+  .custom-carousel .row {
+    gap: 10px; /* Smaller gap for very small devices */
   }
 
-  .custom-carousel .carousel-control-prev-icon,
-  .custom-carousel .carousel-control-next-icon {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-/* Tablets (768px - 1023px) */
-@media (max-width: 1023.98px) {
-  .custom-carousel .carousel-control-prev,
-  .custom-carousel .carousel-control-next {
-    width: 35px;
-    height: 35px;
-  }
-
-  .custom-carousel .carousel-control-prev-icon,
-  .custom-carousel .carousel-control-next-icon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .custom-carousel .carousel-control-prev {
-    left: 5px;
-  }
-
-  .custom-carousel .carousel-control-next {
-    right: 5px;
-  }
-}
-
-/* Small Tablets (600px - 767px) */
-@media (max-width: 767.98px) {
-  .custom-carousel .carousel-control-prev,
-  .custom-carousel .carousel-control-next {
+  .carousel-control-prev,
+  .carousel-control-next {
     width: 30px;
     height: 30px;
   }
 
-  .custom-carousel .carousel-control-prev-icon,
-  .custom-carousel .carousel-control-next-icon {
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
     width: 15px;
     height: 15px;
   }
 
-  .custom-carousel .carousel-control-prev {
-    left: 2px;
-  }
-
-  .custom-carousel .carousel-control-next {
-    right: 2px;
+  .carousel-indicators button {
+    width: 8px;
+    height: 8px;
   }
 }
 
-/* Mobile Devices (480px - 599px) */
-@media (max-width: 599.98px) {
-  .custom-carousel .carousel-control-prev,
-  .custom-carousel .carousel-control-next {
-    width: 25px;
-    height: 25px;
-  }
-
-  .custom-carousel .carousel-control-prev-icon,
-  .custom-carousel .carousel-control-next-icon {
-    width: 12px;
-    height: 12px;
-  }
-
-  .custom-carousel .carousel-control-prev {
-    left: 1px;
-  }
-
-  .custom-carousel .carousel-control-next {
-    right: 1px;
-  }
-
+/* Medium devices (376px - 767px) */
+@media (min-width: 376px) and (max-width: 767px) {
   .custom-carousel .project-card {
-    max-width: 100%; /* Allow cards to take full width on mobile */
+    width: 300px; /* Slightly larger width for small devices */
+  }
+
+  .custom-carousel .row {
+    gap: 15px; /* Slightly larger gap for small devices */
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 35px;
+    height: 35px;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .carousel-indicators button {
+    width: 10px;
+    height: 10px;
   }
 }
 
-/* Very Small Mobile Devices (below 480px) */
-@media (max-width: 479.98px) {
-  .custom-carousel .carousel-control-prev,
-  .custom-carousel .carousel-control-next {
+/* Large devices (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .custom-carousel .project-card {
+    width: 300px; /* Medium width for tablets */
+  }
+
+  .custom-carousel .row {
+    gap: 20px; /* Medium gap for tablets */
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
     width: 20px;
     height: 20px;
   }
 
-  .custom-carousel .carousel-control-prev-icon,
-  .custom-carousel .carousel-control-next-icon {
-    width: 10px;
-    height: 10px;
+  .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Extra large devices (1025px and above) */
+@media (min-width: 1025px) {
+  .custom-carousel .project-card {
+    width: 450px; /* Original width for desktops */
   }
 
-  .custom-carousel .carousel-control-prev {
-    left: 0;
+  .custom-carousel .row {
+    gap: 120px; /* Larger gap for desktops */
   }
 
-  .custom-carousel .carousel-control-next {
-    right: 0;
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 45px;
+    height: 45px;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .carousel-indicators button {
+    width: 15px;
+    height: 15px;
   }
 }
