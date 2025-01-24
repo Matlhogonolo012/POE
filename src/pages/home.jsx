@@ -125,7 +125,7 @@ const HomePage = () => {
   </div>
 </Section>
       <FloatingSidebar className={isSidebarVisible ? "visible" : ""} />
-      
+
       <Section id="intro" title="Personal Introduction" isActive={activeSection === "intro"}>
   <div className="content-container">
     <div className="lottie-container" ref={animationContainer}></div>
@@ -151,78 +151,94 @@ const HomePage = () => {
 </Section>
 
       {/* Skills Section */}
-      <Section id="skills" title="Skills Matrix" isActive={activeSection === "skills"}>
-        <h3 className="sub">Frontend Skills</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Skill</th>
-              <th>Proficiency Level</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>HTML <FaHtml5 /></td>
-              <td>Intermediate</td>
-              <td>Used in multiple projects</td>
-            </tr>
-            <tr>
-              <td>CSS <FaCss3Alt /></td>
-              <td>Advanced</td>
-              <td>Styled responsive layouts</td>
-            </tr>
-            <tr>
-              <td>JavaScript <TbBrandJavascript /></td>
-              <td>Intermediate</td>
-              <td>Developed dynamic web applications</td>
-            </tr>
-            <tr>
-              <td>React.js <FaReact /></td>
-              <td>Intermediate</td>
-              <td>Built interactive UIs</td>
-            </tr>
-            <tr>
-              <td>React Native <TbBrandReactNative /></td>
-              <td>Intermediate</td>
-              <td>Built interactive mobile UIs</td>
-            </tr>
-          </tbody>
-        </table>
+     <Section id="skills" title="Skills Matrix" isActive={activeSection === "skills"}>
+      <h3 className="sub">Frontend Skills</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Proficiency Level</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Skill">
+              HTML <FaHtml5 />
+            </td>
+            <td data-label="Proficiency Level">Intermediate</td>
+            <td data-label="Description">Used in multiple projects</td>
+          </tr>
+          <tr>
+            <td data-label="Skill">
+              CSS <FaCss3Alt />
+            </td>
+            <td data-label="Proficiency Level">Advanced</td>
+            <td data-label="Description">Styled responsive layouts</td>
+          </tr>
+          <tr>
+            <td data-label="Skill">
+              JavaScript <TbBrandJavascript />
+            </td>
+            <td data-label="Proficiency Level">Intermediate</td>
+            <td data-label="Description">Developed dynamic web applications</td>
+          </tr>
+          <tr>
+            <td data-label="Skill">
+              React.js <FaReact />
+            </td>
+            <td data-label="Proficiency Level">Intermediate</td>
+            <td data-label="Description">Built interactive UIs</td>
+          </tr>
+          <tr>
+            <td data-label="Skill">
+              React Native <TbBrandReactNative />
+            </td>
+            <td data-label="Proficiency Level">Intermediate</td>
+            <td data-label="Description">Built interactive mobile UIs</td>
+          </tr>
+        </tbody>
+      </table>
 
-        <h3 className="sub">Backend Skills</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Skill</th>
-              <th>Proficiency Level</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Node.js <FaNodeJs /></td>
-              <td>Intermediate</td>
-              <td>Built server-side applications</td>
-            </tr>
-            <tr>
-              <td>Express.js</td>
-              <td>Intermediate</td>
-              <td>Developed RESTful APIs</td>
-            </tr>
-            <tr>
-              <td>MongoDB <SiMongodb /></td>
-              <td>Intermediate</td>
-              <td>Managed NoSQL databases</td>
-            </tr>
-            <tr>
-              <td>Firebase <IoLogoFirebase /></td>
-              <td>Beginner</td>
-              <td>Used for real-time database and authentication</td>
-            </tr>
-          </tbody>
-        </table>
-      </Section>
+      <h3 className="sub">Backend Skills</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Proficiency Level</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Skill">
+              Node.js <FaNodeJs />
+            </td>
+            <td data-label="Proficiency Level">Intermediate</td>
+            <td data-label="Description">Built server-side applications</td>
+          </tr>
+          <tr>
+            <td data-label="Skill">Express.js</td>
+            <td data-label="Proficiency Level">Intermediate</td>
+            <td data-label="Description">Developed RESTful APIs</td>
+          </tr>
+          <tr>
+            <td data-label="Skill">
+              MongoDB <SiMongodb />
+            </td>
+            <td data-label="Proficiency Level">Intermediate</td>
+            <td data-label="Description">Managed NoSQL databases</td>
+          </tr>
+          <tr>
+            <td data-label="Skill">
+              Firebase <IoLogoFirebase />
+            </td>
+            <td data-label="Proficiency Level">Beginner</td>
+            <td data-label="Description">Used for real-time database and authentication</td>
+          </tr>
+        </tbody>
+      </table>
+    </Section>
 
       {/* Projects Section */}
       <Section id="projects" title="Individual Projects" isActive={activeSection === "projects"}>

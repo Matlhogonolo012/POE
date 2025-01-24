@@ -99,6 +99,13 @@ nav ul {
 }
 
 
+/* Table Container */
+.table-container {
+  overflow-x: auto; /* Enable horizontal scrolling for small screens */
+  margin-bottom: 20px;
+}
+
+/* Default Table Styles */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -109,28 +116,146 @@ table {
 table th,
 table td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 12px;
   text-align: left;
-
-  
 }
 
 table th {
   background: linear-gradient(to right, #9370db, #6a5acd);
-
   color: #fff;
 }
 
 table tr:nth-child(even) {
   background-color: #f2eef8;
 }
-table tr:nth-child(odd){
+
+table tr:nth-child(odd) {
   background-color: #ffffff;
 }
 
 table tr:hover {
   background-color: #f1f1f1;
   transition: background-color 0.9s ease-in-out;
+}
+
+/* Skill Icons */
+.skill-icon {
+  margin-right: 8px;
+  vertical-align: middle;
+  font-size: 18px; /* Default icon size */
+}
+
+/* Responsive Design for Large Screens (1200px - 1629px) */
+@media (max-width: 1629px) {
+  table th,
+  table td {
+    font-size: 16px; /* Slightly reduce font size */
+    padding: 10px; /* Reduce padding */
+  }
+
+  .skill-icon {
+    font-size: 16px; /* Reduce icon size */
+  }
+}
+
+/* Responsive Design for Medium Screens (992px - 1199px) */
+@media (max-width: 1199px) {
+  table th,
+  table td {
+    font-size: 15px; /* Further reduce font size */
+    padding: 9px; /* Further reduce padding */
+  }
+
+  .skill-icon {
+    font-size: 15px; /* Further reduce icon size */
+  }
+}
+
+/* Responsive Design for Tablets (768px - 991px) */
+@media (max-width: 991px) {
+  table th,
+  table td {
+    font-size: 14px; /* Even smaller font size */
+    padding: 8px; /* Even smaller padding */
+  }
+
+  .skill-icon {
+    font-size: 14px; /* Even smaller icon size */
+  }
+}
+
+/* Responsive Design for Small Tablets (600px - 767px) */
+@media (max-width: 767px) {
+  table th,
+  table td {
+    font-size: 13px; /* Smaller font size */
+    padding: 7px; /* Smaller padding */
+  }
+
+  .skill-icon {
+    font-size: 13px; /* Smaller icon size */
+  }
+}
+
+/* Responsive Design for Mobile Phones (480px - 599px) */
+@media (max-width: 599px) {
+  table th,
+  table td {
+    font-size: 12px; /* Even smaller font size */
+    padding: 6px; /* Even smaller padding */
+  }
+
+  .skill-icon {
+    font-size: 12px; /* Even smaller icon size */
+  }
+}
+
+/* Stacked Table Layout for Very Small Screens (under 480px) */
+@media (max-width: 480px) {
+  table,
+  table thead,
+  table tbody,
+  table th,
+  table td,
+  table tr {
+    display: block; /* Convert table to block layout */
+  }
+
+  table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; /* Hide headers */
+  }
+
+  table tr {
+    border: 1px solid #ddd;
+    margin-bottom: 10px; /* Add space between rows */
+  }
+
+  table td {
+    border: none;
+    border-bottom: 1px solid #ddd; /* Add bottom border to each cell */
+    position: relative;
+    padding-left: 50%; /* Add space for labels */
+    text-align: right; /* Align text to the right */
+    white-space: normal; /* Allow text wrapping */
+  }
+
+  table td::before {
+    content: attr(data-label); /* Use data-label attribute for labels */
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    text-align: left; /* Align labels to the left */
+    font-weight: bold;
+    color: #6a5acd; /* Match header color */
+  }
+
+  .skill-icon {
+    display: block; /* Display icons on a new line */
+    margin: 5px 0; /* Add space around icons */
+  }
 }
 
 .section {
@@ -246,7 +371,52 @@ table tr:hover {
 }
 
 
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .floating-sidebar {
+    left: 10px; /* Move closer to the edge */
+  }
 
+  .sidebar-toggle {
+    font-size: 18px; /* Smaller toggle button */
+  }
+
+  .sidebar-icons .icon {
+    font-size: 20px; /* Smaller icons for tablets */
+  }
+
+  /* Adjust Lottie Animation Size */
+  .lottie-container {
+    width: 150px; /* Smaller Lottie animation */
+    height: 150px;
+  }
+}
+
+/* Responsive Design for Mobile Phones */
+@media (max-width: 480px) {
+  .floating-sidebar {
+    left: 5px; /* Move even closer to the edge */
+  }
+
+  .sidebar-toggle {
+    font-size: 16px; /* Smaller toggle button */
+  }
+
+  .sidebar-icons .icon {
+    font-size: 16px; /* Smaller icons for phones */
+  }
+
+  /* Adjust Lottie Animation Size */
+  .lottie-container {
+    width: 100px; /* Even smaller Lottie animation */
+    height: 100px;
+  }
+
+  /* Adjust Content Padding */
+  .content-container {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+}
 
 .hamburger span {
   width: 25px;
